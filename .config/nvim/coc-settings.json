@@ -1,0 +1,36 @@
+{
+  "yaml.format.enable": true,
+  "languageserver": {
+    "pyls": {
+      "command": "/usr/local/bin/python3",
+      "args": [
+        "-mpyls"
+      ],
+      "filetypes": [
+        "python"
+      ],
+      "settings": {
+        "pyls": {
+          "enable": true,
+          "plugins": {
+            "pylint": {
+              "enabled": false
+            },
+            "pylake":{
+              "enabled": false
+            },
+            "flake8": {
+              "enabled": true
+            },
+            "black": {
+              "enabled": true
+            },
+            "mypy": {
+              "enabled": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
