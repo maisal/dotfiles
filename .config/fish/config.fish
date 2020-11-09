@@ -110,6 +110,10 @@ if status --is-interactive
   abbr -ag pip2 'python2 -mpip'
   abbr -ag pip3 'python3 -mpip'
   abbr -ag rsync 'rsync -achv --progress --append-verify -n'
+  abbr -ag ga 'git add'
+  abbr -ag gs 'git status'
+  abbr -ag gd 'git diff'
+  abbr -ag gc 'git commit'
   if type exa > /dev/null 2>&1
     abbr -ag ls "exa"
     abbr -ag la "exa -a"
