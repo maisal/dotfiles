@@ -40,8 +40,8 @@
 
   " search, replace{{{
   nnoremap / /\v
-  nnoremap <Leader>r :%s/
-  nnoremap <Leader><C-r> :s/
+  " nnoremap <Leader>r :%s/
+  " nnoremap <Leader><C-r> :s/
   nnoremap <silent><Leader><Leader> :nohlsearch<CR>
   "}}}
 
@@ -63,6 +63,9 @@
   "}}}
 
   " others{{{
+    " select all
+    nnoremap <silent> <Leader>a ggVG
+
     " increment, decrement
     nnoremap + <C-a>
     nnoremap - <C-x>
