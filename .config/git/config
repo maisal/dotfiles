@@ -8,3 +8,10 @@
 	gpgsign = true
 [color]
   ui = true
+[diff]
+  tool = nvimdiff
+[difftool]
+  prompt = false
+[merge]
+  tool = nvimdiff
+
