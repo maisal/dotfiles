@@ -1,5 +1,10 @@
 umask 022
 
+# for fix slowing tab completion
+if test (uname) = Darwin
+    function __fish_describe_command; end
+end
+
 # PATH{{{
 set -x PATH /usr/local/bin/ $PATH
 set -x PATH /usr/local/sbin/ $PATH
