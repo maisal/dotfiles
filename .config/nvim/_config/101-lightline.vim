@@ -2,7 +2,7 @@ UsePlugin 'lightline.vim'
 
 " lightline
 let g:lightline = {
-\ 'colorscheme': 'one_kai',
+\ 'colorscheme': 'one',
 \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 \ 'subseparator': {'left': "\ue0b1", 'right': "\ue0b3" },
 \ 'active': {

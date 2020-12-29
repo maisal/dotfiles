@@ -6,7 +6,10 @@ let s:color_scheme = "molokai"
 let g:polyglot_disabled=['c/c++','c++11']
 
 if has('nvim')
-  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:python3_host_prog = '/opt/homebrew/bin/python3'
+  if empty(g:python3_host_prog)
+    let g:python3_host_prog = '/usr/local/bin/python3'
+  endif
 endif
 
 " load fzf for fzf.vim
@@ -58,7 +61,7 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'machakann/vim-highlightedyank'
-Plug 'szymonmaszke/vimpyter'
+" Plug 'szymonmaszke/vimpyter'
 Plug 'glidenote/memolist.vim'
 Plug 'mbbill/undotree'
 Plug 'simeji/winresizer'
