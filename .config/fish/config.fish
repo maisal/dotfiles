@@ -105,7 +105,6 @@ alias python 'python3'
 alias pip_update "python -mpip list --outdated --format=json | jq -r '.[].name' | xargs python -mpip install -U pip"
 alias pip2_update "python2 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python2 -mpip install -U pip"
 alias pip3_update "python3 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python3 -mpip install -U pip"
-alias gpg 'env LANG=C gpg'
 alias efish "$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
 alias rfish "source $XDG_CONFIG_HOME/fish/config.fish"
 alias reload "exec fish"
