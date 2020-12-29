@@ -15,6 +15,9 @@ set -x PATH $PATH $HOME/.local/bin
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $PATH /usr/local/opt/llvm/bin
 set -x PATH $PATH /opt/alps/bin
+if test (uname) = 'Darwin' -a (uname -m) = 'arm64'
+  set -x PATH /opt/homebrew/bin/ $PATH
+end
 
 ## GO
 set -x GOPATH $HOME/golang
@@ -68,6 +71,11 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 
 # aliases{{{
 if test (uname) = 'Darwin'
+  if test (uname -m) = 'arm64'
+    alias brew "arch --arch=x86_64 /usr/local/bin/brew"
+    type /opt/homebrew/bin/brew > /dev/null 2>&1
+      and alias armbrew "/opt/homebrew/bin/brew"
+  end
   type gls > /dev/null 2>&1
     and alias ls "gls -F --color=auto"
     or alias ls "ls -G -F"
@@ -108,6 +116,10 @@ alias speedtest "speedtest-cli --list | grep 'OPEN Project' | cut -d' ' -f1 | re
 
 # abbreviations{{{
 if status --is-interactive
+  if test (uname) = 'Darwin' -a (uname -m) = 'arm64'
+    abbr -ag X86 'arch --arch=x86_64 '
+    abbr -ag ARM 'arch --arch=arm64 '
+  end
   abbr -ag tree 'tree -NC'
   abbr -ag psl 'ps aux | less'
   abbr -ag psg 'ps aux | rg'
