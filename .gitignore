@@ -1,33 +1,57 @@
 /*
+!.bash_profile
+!.bashrc
+!.gitignore
+!.tmux.conf
+!install.sh
+# .config
 !/.config/
 /.config/*
+## dircolors
 !/.config/dircolors/
 /.config/dircolors/*
 !/.config/dircolors/dircolors
+## fish
 !/.config/fish/
 /.config/fish/*
 !/.config/fish/config.fish
 !/.config/fish/fish_plugins
-!/.config/fish/
+!/.config/fish/conf.d/
+/.config/fish/conf.d/*
+!/.config/fish/conf.d/[0-9]*-*.fish
+## git
 !/.config/git/
 /.config/git/*
 !/.config/git/config
 !/.config/git/ignore
+## nvim
 !/.config/nvim/
 /.config/nvim/*
-!/.config/nvim/_config/
-!/.config/nvim/coc-settings.json
-!/.config/nvim/init.vim
+!/.config/nvim/init.lua
+!/.config/nvim/lua/
+/.config/nvim/lua/*
+!/.config/nvim/lua/*.lua
+!/.config/nvim/lua/plugins/
+/.config/nvim/lua/plugins/*
+!/.config/nvim/lua/plugins/*.lua
+## starship
+!/.config/starship/
+/.config/starship/*
+!/.config/starship/*.toml
+## tmux
 !/.config/tmux/
 /.config/tmux/*
 !/.config/tmux/tmux.conf
 !/.config/tmux/scripts/
+## vim
+!/.config/vim/
+/.config/vim/*
+## zsh
 !/.config/zsh/
 /.config/zsh/*
 !/.config/zsh/.zshenv
+!/.config/zsh/.zprofile
 !/.config/zsh/.zshrc
-!.gitignore
-!.tmux.conf
-!.vimrc
-!.zshenv
-!install.sh
+!/.config/zsh/conf.d/
+/.config/zsh/conf.d/*
+!/.config/zsh/conf.d/[0-9]*-*.zsh

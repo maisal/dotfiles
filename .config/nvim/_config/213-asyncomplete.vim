@@ -1,1 +1,0 @@
-UsePlugin 'asyncomplete.vim'
