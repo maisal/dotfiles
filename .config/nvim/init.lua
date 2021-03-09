@@ -88,7 +88,7 @@ else
 end
 
 -- load config files
-for p in io.popen('ls '..config_home..'/nvim/lua |grep -E "\\d+-.*"|xargs basename -s .lua'):lines() do
+for p in io.popen('ls '..config_home..'/nvim/lua |grep -E "[0-9]+-.*"|xargs basename -s .lua'):lines() do
   require(p)
 end
 
