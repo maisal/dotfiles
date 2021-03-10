@@ -19,8 +19,10 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
-if type fish > /dev/null 2>&1; then
-  exec fish
+if [[ $- == *i* ]]; then
+  if type fish > /dev/null 2>&1; then
+    exec fish
+  elif [ -r $HOME/.bashrc ]; then
+    source $HOME/.bashrc
+  fi
 fi
-
-[[ $- == *i* ]] && [ -r $HOME/.bashrc ] && source $HOME/.bashrc
