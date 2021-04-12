@@ -18,7 +18,7 @@ end
 g.mapleader = ' '
 
 -- polyglot
-g.polyglot_disabled = {'bash', 'python', 'julia'}
+g.polyglot_disabled = {'bash', 'python', 'julia.plugin'}
 
 -- View
 g.vimsyn_embed='lPr'

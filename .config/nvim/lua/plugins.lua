@@ -3,15 +3,20 @@ vim.cmd[[packadd packer.nvim]]
 require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
   -- colorscheme
-  use {'sainnhe/sonokai'}
+  use {'sainnhe/sonokai', opt=false}
   use {'tomasr/molokai', opt=true}
-  use {'junegunn/vim-easy-align', opt=true}
+  use {'junegunn/vim-easy-align', opt=true, event='VimEnter',
+        setup=function()
+          vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {silent=true})
+          vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {silent=true})
+        end
+  }
   -- syntax
-  use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate',
+  use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate', opt=true, event='VimEnter',
         config=function() require('plugins.treesitter_config') end,
       }
   use {'sheerun/vim-polyglot'}
-  use {'JuliaEditorSupport/julia-vim'}
+  use {'JuliaEditorSupport/julia-vim', opt=true, ft='julia'}
   -- lsp
   use {'nvim-lua/completion-nvim', opt=false,
         config=function()
@@ -29,27 +34,34 @@ require('packer').startup(function()
           {'nvim-lua/plenary.nvim'}
         }
       }
+  -- file explorer
+  use {'kyazdani42/nvim-tree.lua', opt=true, event='VimEnter',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = function()
+          vim.api.nvim_set_keymap('n', '<C-h>', ":NvimTreeToggle<CR>", {silent=true,noremap=true})
+        end,
+      }
   -- status line
-  use {'hoob3rt/lualine.nvim',
+  use {'hoob3rt/lualine.nvim', opt=true, event='VimEnter',
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function() require('plugins.lualine_config') end,
       }
   -- edit
   use {'tpope/vim-surround'}
-  use {'tpope/vim-repeat', opt=true}
-  use {'tpope/vim-commentary', opt=false,
-    config = function()
+  use {'tpope/vim-repeat', opt=true, event='VimEnter'}
+  use {'tpope/vim-commentary', opt=true, event='VimEnter',
+    setup = function()
 		  vim.api.nvim_set_keymap('n', '<C-_>', 'gcc', {silent=true})
 		  vim.api.nvim_set_keymap('v', '<C-_>', 'gc', {silent=true})
   	end
   }
   -- git
-  use {'tpope/vim-fugitive'}
-  use {'airblade/vim-gitgutter'}
+  use {'tpope/vim-fugitive', opt=true, event='VimEnter',}
+  use {'airblade/vim-gitgutter', opt=true, event='VimEnter',}
   -- fold
   use {'tmhedberg/SimpylFold', opt=true, ft={'python'}}
   -- memo
-  use {'glidenote/memolist.vim',
+  use {'glidenote/memolist.vim', opt=true, event='VimEnter',
         setup=function() require('plugins.memolist_setup') end,
       }
 end)

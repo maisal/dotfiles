@@ -1,6 +1,6 @@
 haslualine, lualine = pcall(require, 'lualine')
 if haslualine then
-	lualine.status{
+	lualine.setup{
 		options={
 			theme = 'oceanicnext',
 		},
