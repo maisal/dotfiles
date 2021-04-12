@@ -11,6 +11,8 @@
 !/.config/dircolors/
 /.config/dircolors/*
 !/.config/dircolors/dircolors
+!/.config/dircolors/dircolors_dark
+!/.config/dircolors/dircolors_light
 ## fish
 !/.config/fish/
 /.config/fish/*

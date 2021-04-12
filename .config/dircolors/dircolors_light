@@ -1,0 +1,211 @@
+# vim:set foldmethod=marker:
+COLOR tty
+
+NORMAL  00
+FILE    00
+DIR     34
+LINK    1;36
+ORPHAN  5;30;41
+MISSING 5;30;41
+FIFO    30;44
+SOCK    35;44
+DOOR    35;44
+BLK     33;44
+CHR     30;44
+EXEC    03;32
+
+
+# text file
+*.log 30
+
+# config
+*.cfg      02;30
+*.conf     02;30
+*.config   02;30
+*.ini      02;30
+*.toml     02;30
+*.*env     02;30
+*.*profile 02;30
+*.*shrc    02;30
+*.zinit    02;30
+
+#{{{ data
+*.csv  01;30
+*.dat  01;30
+*.json 01;30
+#}}}
+
+#{{{ document
+*.markdown 36
+*.md       36
+*.pdf      36
+*.rst      36
+*.tex      36
+#}}}
+
+#{{{ markup
+*.htm      03;30
+*.html     03;30
+*.xhtml    03;30
+*.xml      03;30
+*.yaml     03;30
+*.yml      03;30
+#}}}
+
+#{{{ archive or compressed
+*.7z   01;35
+*.bz2  01;35
+*.dmg  01;35
+*.gz   01;35
+*.lzh  01;35
+*.pkg  01;35
+*.tar  01;35
+*.tbz  01;35
+*.tbz2 01;35
+*.tgz  01;35
+*.tzst 01;35
+*.txz  01;35
+*.xz   01;35
+*.z    01;35
+*.Z    01;35
+*.zip  01;35
+*.zst  01;35
+#}}}
+
+#{{{ language
+*.c   33
+*.cs  33
+*.csx 33
+*.cpp 33
+*.f   33
+*.go  33
+*.hs  33
+*.java 33
+*.ll  33
+*.lsp 33
+*.rs  33
+*.scala 33
+*.swift 33
+
+*.el  32
+*.vim 32
+
+*.ipynb 32
+*.lua 32
+*.js  32
+*.jl  32
+*.php 32
+*.py  32
+*.rb  32
+*.sql 32
+
+*.h 03;33
+#}}}
+
+# object, binary
+*.o 35
+*.zwc 35
+
+#{{{ library
+*.a     33
+*.dll   33
+*.dylib 33
+*.lib   33
+*.sl    33
+*.so    33
+#}}}
+
+#{{{ image
+*.ai   31
+*.bmp  31
+*.eps  31
+*.epsf 31
+*.epsi 31
+*.gif  31
+*.hdp  31
+*.heic 31
+*.heif 31
+*.jp2  31
+*.j2c  31
+*.jpg  31
+*.JPG  31
+*.jpeg 31
+*.jxr  31
+*.pct  31
+*.pdd  31
+*.pic  31
+*.pict 31
+*.png  31
+*.PNG  31
+*.psb  31
+*.psd  31
+*.svg  31
+*.tif  31
+*.tiff 31
+*.wdp  31
+*.webp 31
+#}}}
+
+#{{{ video
+*.avi  04;35
+*.flv  04;35
+*.m4v  04;35
+*.mkv  04;35
+*.mov  04;35
+*.mp4  04;35
+*.mp4v 04;35
+*.mpg  04;35
+*.ogv  04;35
+*.webm 04;35
+*.wmv  04;35
+#}}}
+
+#{{{ music
+*.aac  01;03;35
+*.aif  01;03;35
+*.aifc 01;03;35
+*.aiff 01;03;35
+*.alac 01;03;35
+*.au   01;03;35
+*.flac 01;03;35
+*.m4a  01;03;35
+*.mid  01;03;35
+*.midi 01;03;35
+*.mka  01;03;35
+*.mp3  01;03;35
+*.mpc  01;03;35
+*.oga  01;03;35
+*.ogg  01;03;35
+*.opus 01;03;35
+*.ra   01;03;35
+*.tta  01;03;35
+*.wav  01;03;35
+*.wma  01;03;35
+#}}}
+
+#{{{ shell script
+*.sh   31
+*.bash 31
+*.zsh  31
+*.csh  31
+*.tcl  31
+*.fish 31
+#}}}
+
+#{{{ office
+*.doc  01;34
+*.docx 01;34
+*.ppt  01;31
+*.pptx 01;31
+*.xls  01;32
+*.xlsx 01;32
+#}}}
+
+#{{{ special files
+*CMakeLists.txt 01;04;31
+*Dockerfile     01;04;31
+*Makefile       01;04;31
+*README         01;04;31
+*README.md      01;04;31
+*README.rst     01;04;31
+#}}}
