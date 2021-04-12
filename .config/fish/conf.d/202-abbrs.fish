@@ -23,10 +23,10 @@ if status --is-interactive
   abbr -ag gd 'git diff'
   abbr -ag gc 'git commit'
   if type -q exa
-    abbr -ag ls "exa"
-    abbr -ag la "exa -a"
-    abbr -ag ll "exa -lha"
-    abbr -ag lt "exa -Tlh -L2"
+    abbr -ag ls "exa --icons"
+    abbr -ag la "exa --icons -a"
+    abbr -ag ll "exa --icons -lha"
+    abbr -ag lt "exa --icons -Tlh -L2"
   else
     abbr -ag la "ls -a"
     abbr -ag ll "ls -lha"

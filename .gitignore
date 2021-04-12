@@ -21,6 +21,9 @@
 !/.config/fish/conf.d/
 /.config/fish/conf.d/*
 !/.config/fish/conf.d/[0-9]*-*.fish
+!/.config/fish/functions/
+/.config/fish/functions/*
+!/.config/fish/functions/efish.fish
 ## git
 !/.config/git/
 /.config/git/*
