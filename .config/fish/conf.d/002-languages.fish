@@ -1,5 +1,5 @@
 # vim:set foldmethod=marker:
-if status --is-login
+if status --is-login; or test (basename $SHELL) = "bash"
 
 #{{{ C/C++
 set -x CPATH $CPATH /usr/local/include
