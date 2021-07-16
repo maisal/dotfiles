@@ -56,37 +56,38 @@ EXEC    03;32
 #}}}
 
 #{{{ archive or compressed
-*.7z   01;35
-*.bz2  01;35
-*.dmg  01;35
-*.gz   01;35
-*.lzh  01;35
-*.pkg  01;35
-*.tar  01;35
-*.tbz  01;35
-*.tbz2 01;35
-*.tgz  01;35
-*.tzst 01;35
-*.txz  01;35
-*.xz   01;35
-*.z    01;35
-*.Z    01;35
-*.zip  01;35
-*.zst  01;35
+*.7z    01;35
+*.bz2   01;35
+*.dmg   01;35
+*.gz    01;35
+*.lzh   01;35
+*.pkg   01;35
+*.sqlar 01;35
+*.tar   01;35
+*.tbz   01;35
+*.tbz2  01;35
+*.tgz   01;35
+*.tzst  01;35
+*.txz   01;35
+*.xz    01;35
+*.z     01;35
+*.Z     01;35
+*.zip   01;35
+*.zst   01;35
 #}}}
 
 #{{{ language
-*.c   33
-*.cs  33
-*.csx 33
-*.cpp 33
-*.f   33
-*.go  33
-*.hs  33
-*.java 33
-*.ll  33
-*.lsp 33
-*.rs  33
+*.c     33
+*.cs    33
+*.csx   33
+*.cpp   33
+*.f     33
+*.go    33
+*.hs    33
+*.java  33
+*.ll    33
+*.lsp   33
+*.rs    33
 *.scala 33
 *.swift 33
 
@@ -94,19 +95,19 @@ EXEC    03;32
 *.vim 32
 
 *.ipynb 32
-*.lua 32
-*.js  32
-*.jl  32
-*.php 32
-*.py  32
-*.rb  32
-*.sql 32
+*.lua   32
+*.js    32
+*.jl    32
+*.php   32
+*.py    32
+*.rb    32
+*.sql   32
 
 *.h 03;33
 #}}}
 
 # object, binary
-*.o 35
+*.o   35
 *.zwc 35
 
 #{{{ library
@@ -120,6 +121,7 @@ EXEC    03;32
 
 #{{{ image
 *.ai   31
+*.avif 31
 *.bmp  31
 *.eps  31
 *.epsf 31
@@ -133,6 +135,7 @@ EXEC    03;32
 *.jpg  31
 *.JPG  31
 *.jpeg 31
+*.jxl  31
 *.jxr  31
 *.pct  31
 *.pdd  31
@@ -196,11 +199,11 @@ EXEC    03;32
 #}}}
 
 #{{{ office
-*.doc  01;34
+*.doc  01;09;34
 *.docx 01;34
-*.ppt  01;31
+*.ppt  01;09;31
 *.pptx 01;31
-*.xls  01;32
+*.xls  01;09;32
 *.xlsx 01;32
 #}}}
 
