@@ -1,6 +1,14 @@
 if status --is-login
 
+echo "load 000-env"
+
 umask 022
+
+# reset PATH variable
+if test (uname) = 'Darwin'
+  set -x PATH
+  eval (/usr/libexec/path_helper -c|/usr/bin/sed -e "s/setenv/set -x/" -e "s/\"//g" -e "s/:/ /g" -e "s/;//")
+end
 
 if locale -a|grep -qE "ja_JP\.(UTF-8|utf8)"
   set -x LANG ja_JP.UTF-8
@@ -31,4 +39,4 @@ if not string match -q $HOME/.local/bin $PATH
     or mkdir -p $HOME/.local/bin
 end
 
-end
+end # if status --is-login

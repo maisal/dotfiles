@@ -17,17 +17,20 @@ fi
 [ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
 [ ! -d $XDG_CONFIG_HOME ] && mkdir -p -v $XDG_CONFIG_HOME
 
+# for bash
 if [ "$login_shell" = "bash" ]; then
   ln -sfv $DOT_DIR/.bash_profile $HOME/
   ln -sfv $DOT_DIR/.bashrc $HOME/
 fi
 
+# for zsh
 if type zsh > /dev/null 2>&1; then
   ln -sfv $DOT_DIR/.config/zsh/.zshenv $HOME/
 fi
 
-if ! type nvim > /dev/null 2>&1 && type vim > /dev/null 2>&1; then
-  ln -sfv $DOT_DIR/.config/vim/vimrc $HOME/.vimrc
+# for vim
+if type vim > /dev/null 2>&1; then
+  ln -sfv $DOT_DIR/.vimrc $HOME/
 fi
 
 # create $HOME/.tmux.conf when tmux version < 3.2

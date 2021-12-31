@@ -3,6 +3,7 @@
 !.bashrc
 !.gitignore
 !.tmux.conf
+!.vimrc
 !install.sh
 # .config
 !/.config/
@@ -48,9 +49,6 @@
 /.config/tmux/*
 !/.config/tmux/tmux.conf
 !/.config/tmux/scripts/
-## vim
-!/.config/vim/
-/.config/vim/*
 ## zsh
 !/.config/zsh/
 /.config/zsh/*

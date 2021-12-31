@@ -1,5 +1,7 @@
 if status --is-interactive
 
+echo "load 401-plugins"
+
 # fzf
 if type -q fzf
   set -x FZF_LEGACY_KEYBINDINGS 0

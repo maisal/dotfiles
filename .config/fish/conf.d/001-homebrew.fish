@@ -1,10 +1,13 @@
 if status --is-login
 
+echo "load 001-homebrew"
+
 if test (uname) = 'Darwin'
   type -q /usr/local/bin/brew
     and set -x HOMEBREW_ROOT /usr/local
   type -q /opt/homebrew/bin/brew
     and set -x HOMEBREW_ROOT /opt/homebrew
+  set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
 else if test (uname) = 'Linux'
   type -q /home/linuxbrew/.linuxbrew/bin/brew
     and set -x HOMEBREW_ROOT /home/linuxbrew/.linuxbrew
@@ -17,7 +20,6 @@ if test -n "$HOMEBREW_ROOT"
     and set -x PATH $HOMEBREW_ROOT/bin $PATH
   not string match -q $HOMEBREW_ROOT/sbin $PATH
     and set -x PATH $HOMEBREW_ROOT/sbin $PATH
-  set -x HOMEBREW_CASK_OPTS "--appdir=/Applications"
 end
 
-end
+end # if status --is-login

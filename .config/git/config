@@ -10,8 +10,13 @@
   ui = true
 [diff]
   tool = nvimdiff
+	compactionHeuristic = true
 [difftool]
   prompt = false
 [merge]
   tool = nvimdiff
 
+[init]
+  defaultBranch = main
+[diff "word"]
+	textconv = docx2txt

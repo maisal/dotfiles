@@ -1,5 +1,8 @@
 if status --is-interactive
 
+echo "load 201-alias"
+
+
 if test (uname) = 'Darwin'
   alias ql 'qlmanage -p $argv > /dev/null 2>&1'
   if test -d $HOMEBREW_ROOT/opt/coreutils
@@ -43,7 +46,9 @@ type -q tmux
   and alias tmux 'tmux -2'
 type -q op
   and alias op_signin 'eval (op signin)'
-type -q speedtest-cli
-  and alias speedtest "speedtest-cli --list | grep 'OPEN Project' | cut -d' ' -f1 | rev | cut -c 2- | rev | xargs speedtest-cli --server"
+type -q speedtest
+  and alias st 'speedtest -L |rg -o "(\d+\s+)OPEN Project" -r \'$1\' -m 1 | xargs speedtest -s'
+type -q podman
+  and alias docker podman
 
 end

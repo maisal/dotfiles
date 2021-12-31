@@ -12,6 +12,7 @@ else:
     if type(position) != float:
         sys.exit()
     else:
+        artist = music.current_track.artist.get()
         title = music.current_track.name.get()
         ttime = music.current_track.time.get()
         if 59 < position:
@@ -20,4 +21,4 @@ else:
         else:
             min = 0
             sec = int(position // 1)
-        print(f"{title} ({min}:{sec:02}/{ttime}) ")
+        print(f"{artist} / {title} ({min}:{sec:02}/{ttime}) ")

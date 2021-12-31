@@ -1,5 +1,7 @@
 if status --is-interactive
 
+echo "load 100-dircolors"
+
 if test -f $XDG_CONFIG_HOME/dircolors/dircolors
   set dircolors_path $XDG_CONFIG_HOME/dircolors/dircolors
   if type -q dircolors
@@ -13,4 +15,4 @@ if test -f $XDG_CONFIG_HOME/dircolors/dircolors
   end
 end
 
-end
+end # if status --is-interactive

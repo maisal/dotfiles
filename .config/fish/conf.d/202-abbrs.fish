@@ -1,7 +1,12 @@
 if status --is-interactive
+
+echo "load 202-abbrs"
+
   if test (uname) = 'Darwin' -a (uname -m) = 'arm64'
     abbr -ag X86 'arch --arch=x86_64 '
     abbr -ag ARM 'arch --arch=arm64 '
+    type -q trash
+      and abbr -ag rm 'trash -Fv'
   end
   type -q tree
     and abbr -ag tree 'tree -NC'
@@ -17,7 +22,9 @@ if status --is-interactive
     abbr -ag pip2_update "python2 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python2 -mpip install -U pip"
     abbr -ag pip3_update "python3 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python3 -mpip install -U pip"
   end
+  abbr -ag cmake_uninstall 'xargs rmrf < install_manifest.txt'
   abbr -ag rsync 'rsync -achv --progress --append-verify -n'
+  # git
   abbr -ag ga 'git add'
   abbr -ag gs 'git status'
   abbr -ag gd 'git diff'
@@ -25,10 +32,10 @@ if status --is-interactive
   if type -q exa
     abbr -ag ls "exa --icons"
     abbr -ag la "exa --icons -a"
-    abbr -ag ll "exa --icons -lha"
-    abbr -ag lt "exa --icons -Tlh -L2"
+    abbr -ag ll "exa --icons -la"
+    abbr -ag lt "exa --icons -Tl -L2"
   else
     abbr -ag la "ls -a"
     abbr -ag ll "ls -lha"
   end
-end
+end #if status --is-interactive
