@@ -80,8 +80,6 @@ type -q $HOMEBREW_ROOT/opt/sqlite/bin/sqlite3
 #{{{ lua
 type -q $HOMEBREW_ROOT/opt/luajit-openresty/bin/luajit
   and set -x PATH $HOMEBREW_ROOT/opt/luajit-openresty/bin $PATH
-type -q $HOME/build/lua-language-server/bin/macOS/lua-language-server
-  and set -x PATH $PATH $HOME/build/lua-language-server/bin/macOS
 #}}}
 
 end # if status --is-login
