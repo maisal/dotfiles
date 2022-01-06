@@ -51,4 +51,7 @@ type -q speedtest
 type -q podman
   and alias docker podman
 
+type -q lemonade
+  and alias lssh 'lemonade server&; ssh $argv; pkill -9 -f lemonade'
+
 end
