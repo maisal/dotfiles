@@ -1,6 +1,6 @@
-haslualine, lualine = pcall(require, 'lualine')
+local haslualine, lualine = pcall(require, 'lualine')
 
-local theme='oceanicnext'
+local theme='OceanicNext'
 
 if haslualine then
 
