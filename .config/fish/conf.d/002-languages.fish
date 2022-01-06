@@ -34,10 +34,13 @@ end
 #}}}
 
 #{{{ python
-type -q $HOMEBREW_ROOT/bin/python3
-  and set -x PYTHON $HOMEBREW_ROOT/bin/python3
-type -q $HOMEBREW_ROOT/bin/python3
-  and set -x PYTHON3 $HOMEBREW_ROOT/bin/python3
+if type -q $HOMEBREW_ROOT/bin/python3
+  set -x PYTHON $HOMEBREW_ROOT/bin/python3
+  set -x PYTHON3 $HOMEBREW_ROOT/bin/python3
+else
+  set -x PYTHON (which python3)
+  set -x PYTHON3 (which python3)
+end
 # test (uname) = Darwin -a -d /Applications/Python\ 3.10
 #   and set -x PATH /Library/Frameworks/Python.framework/Versions/3.10/bin $PATH
 set -x PYTHONPATH $HOME/.local/lib/python $PYTHONPATH
