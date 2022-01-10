@@ -1,14 +1,15 @@
-declare -A ZPLGM
-ZPLGM[HOME_DIR]=$XDG_CONFIG_HOME/zinit
-ZPLGM[BIN_DIR]=$ZPLGM[HOME_DIR]/bin
-ZPLGM[PLUGINS_DIR]=$ZPLGM[HOME_DIR]/plugins
-
+ZINIT_HOME=${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git
+if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
 ### Added by zinit's installer
-source "$ZPLGM[BIN_DIR]/zinit.zsh"
+source "$ZINIT_HOME/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of zinit's installer chunk
+
 zinit load zsh-users/zsh-history-substring-search
 
 # bindkey for zsh-history-substring-search
