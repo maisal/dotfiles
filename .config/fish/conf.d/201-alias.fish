@@ -50,8 +50,7 @@ type -q speedtest
   and alias st 'speedtest -L |rg -o "(\d+\s+)OPEN Project" -r \'$1\' -m 1 | xargs speedtest -s'
 type -q podman
   and alias docker podman
-
 type -q lemonade
-  and alias lssh 'lemonade server&; ssh $argv; pkill -9 -f lemonade'
+  and alias lssh 'lemonade server > /dev/null 2>&1 &; ssh $argv; pkill -9 -f lemonade'
 
 end
