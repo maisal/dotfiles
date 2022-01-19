@@ -1,6 +1,6 @@
 if status --is-interactive
 
-echo "load 202-abbrs"
+echo -e "\e[32mload\e[m 202-abbrs"
 
   if test (uname) = 'Darwin' -a (uname -m) = 'arm64'
     abbr -ag X86 'arch --arch=x86_64 '

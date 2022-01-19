@@ -1,6 +1,6 @@
 if status --is-interactive
 
-echo "load 101-applications"
+echo -e "\e[32mload\e[m 101-applications"
 
 # vim/neovim
 if type -q nvim

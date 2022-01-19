@@ -1,6 +1,6 @@
 if status --is-login
 
-echo "load 000-env"
+echo -e "\e[32mload\e[m 000-env"
 
 umask 022
 

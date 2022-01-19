@@ -1,7 +1,7 @@
 # vim:set foldmethod=marker:
 if status --is-login; or test (basename $SHELL) = "bash"
 
-echo "load 002-languages"
+echo -e "\e[32mload\e[m 002-languages"
 
 #{{{ C/C++
 set -x CPATH $CPATH /usr/local/include

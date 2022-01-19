@@ -1,4 +1,4 @@
-echo "bash_profile"
+echo -e "\e[32mload \e[mbash_profile"
 
 if locale -a|grep -qE "ja_JP\.(UTF-8|utf8)"; then
   export LANG=ja_JP.UTF-8

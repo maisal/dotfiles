@@ -1,6 +1,6 @@
 if status --is-interactive
 
-echo "load 102-tokens"
+echo -e "\e[32mload\e[m 102-tokens"
 
 function decrypt
   cat $argv | openssl pkeyutl -decrypt -inkey ~/.keys/rsa_private.pem

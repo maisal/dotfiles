@@ -1,6 +1,6 @@
 if status --is-interactive
 
-echo "load 100-dircolors"
+echo -e "\e[32mload\e[m 100-dircolors"
 
 if test -f $XDG_CONFIG_HOME/dircolors/dircolors
   set dircolors_path $XDG_CONFIG_HOME/dircolors/dircolors

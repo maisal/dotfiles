@@ -1,6 +1,6 @@
 if status --is-interactive
 
-echo "load 401-plugins"
+echo -e "\e[32mload\e[m 401-plugins"
 
 # fzf
 if type -q fzf

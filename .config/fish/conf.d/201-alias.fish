@@ -1,6 +1,6 @@
 if status --is-interactive
 
-echo "load 201-alias"
+echo -e "\e[32mload\e[m 201-alias"
 
 
 if test (uname) = 'Darwin'
@@ -51,6 +51,6 @@ type -q speedtest
 type -q podman
   and alias docker podman
 type -q lemonade
-  and alias lssh 'lemonade server > /dev/null 2>&1 &; ssh $argv; pkill -9 -f lemonade'
+  and alias lssh 'lemonade server > /dev/null 2>&1 &; ssh $argv; pkill -f lemonade'
 
 end

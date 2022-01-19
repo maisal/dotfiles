@@ -1,6 +1,6 @@
 if status --is-login
 
-echo "load 001-homebrew"
+echo -e "\e[32mload\e[m 001-homebrew"
 
 if test (uname) = 'Darwin'
   type -q /usr/local/bin/brew
