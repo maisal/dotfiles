@@ -1,3 +1,8 @@
+# end if not interactive
+if [ -z "$PS1" ]; then
+   return
+fi
+
 echo -e "\e[32mload\e[m bashrc"
 
 if [[ $- == *i* ]]; then
