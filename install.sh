@@ -19,26 +19,26 @@ fi
 
 # for bash
 if [ "$login_shell" = "bash" ]; then
-  ln -sfv $DOT_DIR/.bash_profile $HOME/
-  ln -sfv $DOT_DIR/.bashrc $HOME/
+  ln -siv $DOT_DIR/.bash_profile $HOME/
+  ln -siv $DOT_DIR/.bashrc $HOME/
 fi
 
 # for zsh
 if type zsh > /dev/null 2>&1; then
-  ln -sfv $DOT_DIR/.config/zsh/.zshenv $HOME/
+  ln -siv $DOT_DIR/.config/zsh/.zshenv $HOME/
 fi
 
 # for vim
 if type vim > /dev/null 2>&1; then
-  ln -sfv $DOT_DIR/.vimrc $HOME/
+  ln -siv $DOT_DIR/.vimrc $HOME/
 fi
 
 # create $HOME/.tmux.conf when tmux version < 3.2
 if type tmux > /dev/null 2>&1; then
   if ! tmux -V|grep -qE '3\.[2-9]'; then
-    ln -sfv $DOT_DIR/.tmux.conf $HOME/
+    ln -siv $DOT_DIR/.tmux.conf $HOME/
   fi
 fi
 
-ln -sfv $DOT_DIR/.config/* $XDG_CONFIG_HOME/
+ln -siv $DOT_DIR/.config/* $XDG_CONFIG_HOME/
 
