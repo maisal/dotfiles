@@ -67,24 +67,31 @@ nnoremap <C-w>\ :vsplit<CR>
 " finish if vim has no eval feature
 if !1 | finish | endif
 
-if getenv("XDG_DATA_HOME") != ""
+if getenv("XDG_CONFIG_HOME") != v:null
+  let s:VIM_CONFIG_HOME=expand("$XDG_CONFIG_HOME/vim")
+else
+  let s:VIM_CONFIG_HOME=expand("$HOME/.config/vim")
+endif
+
+if getenv("XDG_DATA_HOME") != v:null
   let s:VIM_DATA_HOME=expand("$XDG_DATA_HOME/vim")
 else
   let s:VIM_DATA_HOME=expand("$HOME/.local/share/vim")
 endif
+
 let &undodir=s:VIM_DATA_HOME."/undo"
 let &directory=s:VIM_DATA_HOME."/swap"
 let &backupdir=s:VIM_DATA_HOME."/backup"
 let &viewdir=s:VIM_DATA_HOME."/view"
 
-for path in [s:VIM_DATA_HOME,&undodir,&directory,&backupdir,&viewdir]
+for path in [s:VIM_CONFIG_HOME,s:VIM_DATA_HOME,&undodir,&directory,&backupdir,&viewdir]
   if !isdirectory(path)
     call mkdir(path, "p")
   endif
 endfor
 
-set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+let &viminfo=&viminfo."'1000,n".s:VIM_DATA_HOME."/viminfo"
+let &runtimepath=s:VIM_CONFIG_HOME.expand(",$VIMRUNTIME,").s:VIM_CONFIG_HOME."/after"
 
 syntax on
 colorscheme darkblue
@@ -104,6 +111,9 @@ function! GetStatusLine()
   elseif m =~ 'v'
     let n=4
     let name='VISUAL'
+  elseif m =~ 'c'
+    let n=2
+    let name='COMMAND'
   endif
   return '%#Mode'.n.'# '.name.' %#ColorC# %F%m%r%h%w%=%{&fileencoding} | %{&ff} | %Y %#ColorB# %P %#ColorA# %04l:%04v '
 endfunction
