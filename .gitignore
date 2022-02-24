@@ -4,6 +4,7 @@
 !.gitignore
 !.tmux.conf
 !.vimrc
+!.zshenv
 !install.sh
 # .config
 !/.config/

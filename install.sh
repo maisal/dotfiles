@@ -25,7 +25,7 @@ fi
 
 # for zsh
 if type zsh > /dev/null 2>&1; then
-  ln -siv $DOT_DIR/.config/zsh/.zshenv $HOME/
+  ln -siv $DOT_DIR/.zshenv $HOME/
 fi
 
 # for vim
