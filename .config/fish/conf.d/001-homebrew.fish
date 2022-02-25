@@ -1,4 +1,4 @@
-if status --is-login
+if status --is-login; or test (basename $SHELL) != "fish"
 
 echo -e "\e[32mload\e[m 001-homebrew"
 
@@ -22,4 +22,4 @@ if test -n "$HOMEBREW_ROOT"
     and set -x PATH $HOMEBREW_ROOT/sbin $PATH
 end
 
-end # if status --is-login
+end # if status --is-login; or test (basename $SHELL) != "fish"

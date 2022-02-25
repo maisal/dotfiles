@@ -1,5 +1,5 @@
 # vim:set foldmethod=marker:
-if status --is-login; or test (basename $SHELL) = "bash"
+if status --is-login; or test (basename $SHELL) != "fish"
 
 echo -e "\e[32mload\e[m 002-languages"
 
@@ -85,4 +85,4 @@ type -q $HOMEBREW_ROOT/opt/luajit-openresty/bin/luajit
   and set -x PATH $HOMEBREW_ROOT/opt/luajit-openresty/bin $PATH
 #}}}
 
-end # if status --is-login
+end # if status --is-login; or test (basename $SHELL) != "fish"
