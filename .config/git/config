@@ -4,20 +4,25 @@
 	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
 [core]
 	autocrlf = false
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  light = false
+  side-by-side = true
 [commit]
 	gpgsign = true
 [color]
   ui = true
 [diff]
-  tool = nvimdiff
-	compactionHeuristic = true
+  colorMoved = default
 [difftool]
   prompt = false
 [merge]
-  tool = nvimdiff
+  conflictstyle = diff3
 [pull]
   rebase = false
-
 [init]
   defaultBranch = main
 [diff "word"]
