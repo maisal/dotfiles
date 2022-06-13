@@ -1,3 +1,3 @@
-vim.api.nvim_buf_set_keymap(0, 'n', 'q', '<Cmd>bd<CR>', {noremap=true,nowait=true})
-vim.api.nvim_buf_set_keymap(0, 'n', 'h', '<Plug>NetrwBrowseUpDir', {noremap=false})
-vim.api.nvim_buf_set_keymap(0, 'n', 'l', '<Plug>NetrwLocalBrowseCheck', {noremap=false})
+vim.keymap.set('n', 'q', '<Cmd>bd<CR>', { buffer = true, nowait = true })
+vim.keymap.set('n', 'h', '<Plug>NetrwBrowseUpDir', { buffer = true })
+vim.keymap.set('n', 'l', '<Plug>NetrwLocalBrowseCheck', { buffer = true })

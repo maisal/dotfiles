@@ -43,12 +43,12 @@
 !/.config/nvim/ftdetect/
 /.config/nvim/ftdetect/*
 !/.config/nvim/ftdetect/*.vim
-!/.config/nvim/init/
-/.config/nvim/init/*
-!/.config/nvim/init/*.lua
 !/.config/nvim/lua/
 /.config/nvim/lua/*
 !/.config/nvim/lua/*.lua
+!/.config/nvim/lua/init/
+/.config/nvim/lua/init/*
+!/.config/nvim/lua/init/*.lua
 !/.config/nvim/lua/config/
 /.config/nvim/lua/config/*
 !/.config/nvim/lua/config/*.lua
