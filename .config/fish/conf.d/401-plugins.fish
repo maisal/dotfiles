@@ -10,7 +10,7 @@ if type -q fzf
   set -x FZF_DEFAULT_OPTS "--ansi --height 40% --reverse --border"
   set -x FZF_COMPLETION_TRIGGER '**'
 
-  if type -q fd
+  if type -q $FD
     set -x FZF_FIND_FILE_COMMAND "$FD --color=always -HIL . \$dir"
     set -x FZF_CD_COMMAND "$FD --color=always --type d -IL . \$dir"
     set -x FZF_CD_WITH_HIDDEN_COMMAND "$FD --color=always --type d -HIL . \$dir"

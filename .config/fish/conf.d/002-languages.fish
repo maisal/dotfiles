@@ -67,6 +67,7 @@ set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 #{{{ rust
 set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -x CARGO_HOME $XDG_DATA_HOME/cargo
+set -x RUSTFLAGS -L$HOMEBREW_ROOT/include
 set -x PATH $CARGO_HOME/bin $PATH
 #}}}
 
