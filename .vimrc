@@ -1,7 +1,4 @@
 set encoding=utf-8
-set number
-set cursorline
-set ruler
 set showmatch matchtime=1
 set list
 set listchars=tab:»-,trail:~,extends:»,precedes:«,nbsp:%
@@ -31,6 +28,10 @@ set mouse=a
 set nomousefocus
 set mousehide
 set guioptions+=a
+set viminfo=
+set noswapfile
+set nobackup
+set noundofile
 
 nnoremap <silent> <Space>w <Cmd>w<CR>
 nnoremap <silent> <Space>W <Cmd>wq<CR>
@@ -67,35 +68,8 @@ nnoremap <C-w>\ :vsplit<CR>
 " finish if vim has no eval feature
 if !1 | finish | endif
 
-if getenv("XDG_CONFIG_HOME") != v:null
-  let s:VIM_CONFIG_HOME=expand("$XDG_CONFIG_HOME/vim")
-else
-  let s:VIM_CONFIG_HOME=expand("$HOME/.config/vim")
-endif
-
-if getenv("XDG_DATA_HOME") != v:null
-  let s:VIM_DATA_HOME=expand("$XDG_DATA_HOME/vim")
-else
-  let s:VIM_DATA_HOME=expand("$HOME/.local/share/vim")
-endif
-
-let &undodir=s:VIM_DATA_HOME."/undo"
-let &directory=s:VIM_DATA_HOME."/swap"
-let &backupdir=s:VIM_DATA_HOME."/backup"
-let &viewdir=s:VIM_DATA_HOME."/view"
-
-for path in [s:VIM_CONFIG_HOME,s:VIM_DATA_HOME,&undodir,&directory,&backupdir,&viewdir]
-  if !isdirectory(path)
-    call mkdir(path, "p")
-  endif
-endfor
-
-let &viminfo=&viminfo."'1000,n".s:VIM_DATA_HOME."/viminfo"
-let &runtimepath=s:VIM_CONFIG_HOME.expand(",$VIMRUNTIME,").s:VIM_CONFIG_HOME."/after"
-
 syntax on
-colorscheme darkblue
-set undofile
+colorscheme torte
 
 function! GetStatusLine()
   let m=mode()
@@ -115,7 +89,7 @@ function! GetStatusLine()
     let n=2
     let name='COMMAND'
   endif
-  return '%#Mode'.n.'# '.name.' %#ColorC# %F%m%r%h%w%=%{&fileencoding} | %{&ff} | %Y %#ColorB# %P %#ColorA# %04l:%04v '
+  return '%#Mode'.n.'# '.name.' %#ColorC# %F%m%r%h%w%=%{&fileencoding} | %{&ff} | %Y %#ColorB# %P %#Mode'.n.'# %04l:%04v '
 endfunction
 
 hi StatusLine ctermfg=black
@@ -125,5 +99,5 @@ hi ColorC ctermfg=white ctermbg=black
 hi Mode1  ctermfg=white ctermbg=darkgreen
 hi Mode2  ctermfg=white ctermbg=darkblue
 hi Mode3  ctermfg=white ctermbg=red
-hi Mode4  ctermfg=white ctermbg=darkyellow
+hi Mode4  ctermfg=white ctermbg=darkmagenta
 set statusline=%!GetStatusLine()
