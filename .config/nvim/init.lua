@@ -18,11 +18,6 @@ end
 g.mapleader = ' '
 g.maplocalleader = ';'
 
--- filetype
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
-g.did_load_ftdetect = 0
-
 -- View
 g.vimsyn_embed = 'lPr'
 opt.hidden = true
@@ -32,7 +27,7 @@ opt.ruler = true
 opt.showmatch = true
 opt.matchtime = 1
 opt.list = true
-opt.listchars = 'tab:»-,trail:~,extends:»,precedes:«,nbsp:%,eol:↵'
+opt.listchars = 'tab:»-,trail:~,extends:»,precedes:«,nbsp:◦,eol:↵'
 
 opt.display = 'lastline'
 opt.laststatus = 2

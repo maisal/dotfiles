@@ -31,16 +31,11 @@ if haslspconfig then
     map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     -- map('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
-    -- Set some keybinds conditional on server capabilities
-    -- if client.resolved_capabilities.document_formatting then
-    --   map('n', '<space>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    -- elseif client.resolved_capabilities.document_range_formatting then
-    --   map('n', '<space>f', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-    -- end
+    map('n', '<space>F', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
+    map('n', '<space>f', '<cmd>lua vim.lsp.buf.range_format()<CR>', opts)
 
     -- Set autocommands conditional on server_capabilities
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
       hi('LspReferenceRead', { reverse = true, bold = true })
       hi('LspReferenceText', { reverse = true, bold = true })
       hi('LspReferenceWrite', { reverse = true, bold = true })
@@ -52,64 +47,65 @@ if haslspconfig then
 
   -- Use a loop to conveniently both setup defined servers
   -- and map buffer local keybindings when the language server attaches
-  local servers = {
-    'awk_ls',
-    'rust_analyzer',
-    'tsserver',
-    'vimls',
-    'intelephense',
-    'pylsp',
-    'bashls',
-    'julials',
-    'clangd',
-    'texlab',
-    'html',
-    'jsonls',
-    'cssls',
-    'vimls',
-    'taplo',
-    'sqls',
-    'yamlls',
+  -- local servers = {
+  --   'awk_ls',
+  --   'rust_analyzer',
+  --   'tsserver',
+  --   'vimls',
+  --   'intelephense',
+  --   'pylsp',
+  --   'bashls',
+  --   'julials',
+  --   'clangd',
+  --   'texlab',
+  --   'html',
+  --   'jsonls',
+  --   'cssls',
+  --   'vimls',
+  --   'taplo',
+  --   'sqls',
+  --   'yamlls',
+  -- }
+  -- for _, lsp in ipairs(servers) do
+  require('mason-lspconfig').setup_handlers {
+    function(lsp)
+      if lsp == 'sumneko_lua' then
+        local runtime_path = vim.split(package.path, ';')
+        table.insert(runtime_path, 'lua/?.lua')
+        table.insert(runtime_path, 'lua/?/init.lua')
+        lspconfig[lsp].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+          settings = {
+            Lua = {
+              runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = runtime_path,
+              },
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+              },
+              workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file('', true),
+              },
+              -- Do not send telemetry data containing a randomized but unique identifier
+              telemetry = {
+                enable = false,
+              },
+            },
+          },
+        })
+      else
+        lspconfig[lsp].setup({
+          on_attach = on_attach,
+        })
+      end
+    end,
   }
-  for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({
-      on_attach = on_attach,
-      -- capabilities = capabilities,
-      on_init = function()
-        map('n', '<space>F', vim.lsp.buf.formatting, { buffer = true })
-      end,
-    })
-  end
+  -- end
 
-  -- sumneko_lua
-  local runtime_path = vim.split(package.path, ';')
-  table.insert(runtime_path, 'lua/?.lua')
-  table.insert(runtime_path, 'lua/?/init.lua')
-
-  require('lspconfig').sumneko_lua.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      Lua = {
-        runtime = {
-          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-          version = 'LuaJIT',
-          -- Setup your lua path
-          path = runtime_path,
-        },
-        diagnostics = {
-          -- Get the language server to recognize the `vim` global
-          globals = { 'vim' },
-        },
-        workspace = {
-          -- Make the server aware of Neovim runtime files
-          library = vim.api.nvim_get_runtime_file('', true),
-        },
-        -- Do not send telemetry data containing a randomized but unique identifier
-        telemetry = {
-          enable = false,
-        },
-      },
-    },
-  })
 end -- if haslspconfig

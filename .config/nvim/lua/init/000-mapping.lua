@@ -63,6 +63,9 @@ map('t', '<A-k>', '<C-\\><C-n><C-w>k')
 map('t', '<A-l>', '<C-\\><C-n><C-w>l')
 
 -- others
+-- digraph
+map('n', [[<A-g>]], 'ga')
+map('i', [[<A- >]], '<C-k>')
 -- fold
 map('n', '<CR>', function()
   return vim.fn.foldclosed(vim.api.nvim_win_get_cursor(0)[1]) > 0 and 'zo' or '<CR>'

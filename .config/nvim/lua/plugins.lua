@@ -95,22 +95,23 @@ require('packer').startup({
     })
     use({ 'voldikss/vim-mma', opt = true, ft = { 'm', 'wls' } })
     use({ 'hjson/vim-hjson', opt = true, ft = 'hjson' })
-    use({
-      'ckipp01/stylua-nvim',
-      opt = true,
-      ft = 'lua',
-      config = function()
-        vim.keymap.set('n', '<Space>F', function()
-          require('stylua-nvim').format_file()
-        end, { buffer = true })
-      end,
-    })
+    -- use({
+    --   'ckipp01/stylua-nvim',
+    --   opt = true,
+    --   ft = 'lua',
+    --   config = function()
+    --     vim.keymap.set('n', '<Space>F', function()
+    --       require('stylua-nvim').format_file()
+    --     end, { buffer = true })
+    --   end,
+    -- })
     -- lsp
     -- use {'nvim-lua/completion-nvim', opt=true, event='VimEnter',
     --       config=function() require('config.completion-nvim') end
     --     }
     use({
-      { 'williamboman/nvim-lsp-installer' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
       {
         'j-hui/fidget.nvim',
         config = function()
@@ -120,9 +121,10 @@ require('packer').startup({
       { 'hrsh7th/cmp-nvim-lsp' },
       {
         'neovim/nvim-lspconfig',
-        after = 'nvim-lsp-installer',
+        after = 'mason-lspconfig.nvim',
         config = function()
-          require('nvim-lsp-installer').setup({})
+          require('mason').setup({})
+          require('mason-lspconfig').setup({})
           require('config.lspconfig')
         end,
       },

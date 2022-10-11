@@ -164,6 +164,7 @@ components.active[2][6] = {
 components.active[3][1] = {
   provider = 'file_encoding',
   hl = { fg = 'white', style = 'bold' },
+  right_sep={' '},
 }
 components.active[3][2] = {
   provider = 'file_format',
@@ -180,6 +181,7 @@ components.active[3][2] = {
       },
     },
   },
+  right_sep={' '},
 }
 components.active[3][3] = {
   provider = 'file_type',
@@ -196,6 +198,7 @@ components.active[3][3] = {
       },
     },
   },
+  right_sep={' '},
 }
 components.active[3][4] = {
   provider = 'line_percentage',
@@ -204,7 +207,7 @@ components.active[3][4] = {
     bg = 'base03',
     style = 'bold',
   },
-  left_sep = { 'slant_left_2', ' ' },
+  left_sep = { 'slant_left_2' },
 }
 components.active[3][5] = {
   provider = 'position',
