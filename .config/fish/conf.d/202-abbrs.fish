@@ -38,4 +38,6 @@ echo -e "\e[32mload\e[m 202-abbrs"
     abbr -ag la "ls -a"
     abbr -ag ll "ls -lha"
   end
+  type -q bat
+    and abbr -ag cat "bat"
 end #if status --is-interactive

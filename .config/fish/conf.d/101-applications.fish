@@ -12,6 +12,9 @@ else
   set -gx EDITOR vi
 end
 
+# bat
+type -q bat
+  and set -x BAT_THEME "Monokai Extended Origin"
 
 # fd
 if type -q fd

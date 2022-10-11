@@ -8,7 +8,7 @@ if test (uname) = 'Darwin'
   if test -d $HOMEBREW_ROOT/opt/coreutils
     alias ls "gls -F --color=auto"
     alias mv ' gtimeout 8 gmv -iv'
-    alias rm ' gtimeout 8 grm -Iv --one-file-system'
+    # alias rm ' gtimeout 8 grm -Iv --one-file-system'
     alias rmr ' gtimeout 8 grm -r -Iv --one-file-system'
     alias rmrf ' gtimeout 8 grm -rf -v --one-file-system'
     alias sed 'gsed'
