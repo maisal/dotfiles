@@ -65,6 +65,8 @@ nnoremap <silent><Space><Space> :nohlsearch<CR>
 nnoremap <C-w>- :split<CR>
 nnoremap <C-w>\ :vsplit<CR>
 
+tnoremap <C-w><C-[> <C-w>N
+
 " finish if vim has no eval feature
 if !1 | finish | endif
 
@@ -82,12 +84,33 @@ function! GetStatusLine()
   elseif m =~ 'R'
     let n=3
     let name='REPLACE'
-  elseif m =~ 'v'
+  elseif m =~# "\<C-V>"
+    let n=4
+    let name='V-BLOCK'
+  elseif m =~# 'V'
+    let n=4
+    let name='V-LINE'
+  elseif m =~# 'v'
     let n=4
     let name='VISUAL'
+  elseif m =~# "\<C-S>"
+    let n=5
+    let name='S-BLOCK'
+  elseif m =~# 'S'
+    let n=5
+    let name='S-LINE'
+  elseif m =~# 's'
+    let n=5
+    let name='SELECT'
   elseif m =~ 'c'
     let n=2
     let name='COMMAND'
+  elseif m =~ 't'
+    let n=6
+    let name='TERMINAL'
+  else
+    let n=0
+    let name=m
   endif
   return '%#Mode'.n.'# '.name.' %#ColorC# %F%m%r%h%w%=%{&fileencoding} | %{&ff} | %Y %#ColorB# %P %#Mode'.n.'# %04l:%04v '
 endfunction
@@ -100,4 +123,6 @@ hi Mode1  ctermfg=white ctermbg=darkgreen
 hi Mode2  ctermfg=white ctermbg=darkblue
 hi Mode3  ctermfg=white ctermbg=red
 hi Mode4  ctermfg=white ctermbg=darkmagenta
+hi Mode5  ctermfg=white ctermbg=brown
+hi Mode6  ctermfg=white ctermbg=gray
 set statusline=%!GetStatusLine()
