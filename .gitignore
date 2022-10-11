@@ -64,6 +64,10 @@
 /.config/tmux/*
 !/.config/tmux/tmux.conf
 !/.config/tmux/scripts/
+## wezterm
+!/.config/wezterm/
+/.config/wezterm/*
+!/.config/wezterm/*.lua
 ## zsh
 !/.config/zsh/
 /.config/zsh/*
