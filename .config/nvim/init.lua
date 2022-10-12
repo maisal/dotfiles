@@ -30,7 +30,7 @@ opt.list = true
 opt.listchars = 'tab:»-,trail:~,extends:»,precedes:«,nbsp:◦,eol:↵'
 
 opt.display = 'lastline'
-opt.laststatus = 2
+opt.laststatus = 3
 opt.showcmd = false
 opt.title = true
 opt.cursorline = true
