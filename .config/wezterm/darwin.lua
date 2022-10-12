@@ -21,5 +21,10 @@ return {
       mods = 'CMD',
       action = act.ActivatePaneDirection 'Prev'
     },
+    {
+      key = 'Enter',
+      mods = 'CMD',
+      action = act.ToggleFullScreen
+    },
   },
 }
