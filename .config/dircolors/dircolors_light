@@ -41,7 +41,8 @@ EXEC    03;32
 #{{{ document
 *.markdown 36
 *.md       36
-*.pdf      36
+*.org      36
+*.pdf      01;36
 *.rst      36
 *.tex      36
 #}}}
