@@ -125,4 +125,5 @@ hi Mode3  ctermfg=white ctermbg=red
 hi Mode4  ctermfg=white ctermbg=darkmagenta
 hi Mode5  ctermfg=white ctermbg=brown
 hi Mode6  ctermfg=white ctermbg=gray
+hi Normal ctermbg=None
 set statusline=%!GetStatusLine()
