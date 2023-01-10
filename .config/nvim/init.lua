@@ -5,10 +5,6 @@ local opt_local = vim.opt_local -- local option
 local g = vim.g -- global variable
 local autocmd = vim.api.nvim_create_autocmd
 
-local config_home = env.XDG_CONFIG_HOME or env.HOME .. '/.config'
-local cache_home = env.XDG_CACHE_HOME or env.HOME .. '/.cache'
-local data_home = env.XDG_DATA_HOME or env.HOME .. '/.local/share'
-
 -- setup python3
 if env.PYTHON3 ~= nil then
   g.python3_host_prog = env.PYTHON3

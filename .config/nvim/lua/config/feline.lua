@@ -185,7 +185,7 @@ components.active[3][2] = {
 }
 components.active[3][3] = {
   provider = 'file_type',
-  hl = { fg = 'white', style = 'bold' },
+  hl = { fg = 'white', style = 'bold', bg=nil },
   left_sep = {
     {
       str = 'slant_left_2_thin',

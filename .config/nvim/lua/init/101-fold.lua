@@ -7,7 +7,6 @@ end
 
 vim.opt.foldmethod = 'syntax'
 vim.opt.foldcolumn = '4'
-vim.opt.fillchars = 'vert:|'
 function _G.NeatFoldText()
   local line = ' ' .. getline(vim.v.foldstart):gsub([[^%s*[#"]?%s*]], ''):gsub([[%s*[#"]?%s*{{{%d*%s*]], '') .. ' '
   local lines_count = vim.v.foldend - vim.v.foldstart + 1

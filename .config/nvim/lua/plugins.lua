@@ -58,6 +58,7 @@ require('packer').startup({
     use({ 'vim-scripts/dbext.vim', opt = true, ft = 'sql' })
     use({ 'tpope/vim-dadbod', opt = true, ft = 'sql' })
     use({ 'peterhoeg/vim-qml', opt = true, ft = 'qml' })
+    use({ 'ron-rs/ron.vim', opt = true, ft = 'ron' })
     use({
       'nvim-treesitter/nvim-treesitter',
       opt = true,
@@ -243,19 +244,21 @@ require('packer').startup({
     })
     use({ 'tpope/vim-repeat', opt = true, keys = '.' })
     use({
-      'b3nj5m1n/kommentary',
+      'numToStr/Comment.nvim',
       opt = true,
-      keys = { '<Plug>kommentary_line_default', '<Plug>kommentary_visual_default' },
+      event = 'VimEnter',
       setup = function()
-        vim.keymap.set('n', '<C-_>', '<Plug>kommentary_line_default')
-        vim.keymap.set('v', '<C-_>', '<Plug>kommentary_visual_default<C-c>')
+        vim.keymap.set('n', '<C-;>', '<Plug>(comment_toggle_linewise_current)')
+        vim.keymap.set('v', '<C-;>', '<Plug>(comment_toggle_linewise_visual)')
       end,
       config = function()
-        vim.g.kommentary_create_default_mappings = false
-        require('kommentary.config').configure_language('default', {
-          prefer_single_line_comments = true,
+        require('Comment').setup({
+          mappings = {
+            basic = false,
+            extra = false
+          }
         })
-      end,
+      end
     })
     use({ 'dhruvasagar/vim-table-mode', opt = true, ft = 'rst' })
     -- git
@@ -265,6 +268,9 @@ require('packer').startup({
       event = 'BufEnter',
       config = function()
         require('gitsigns').setup()
+        vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = '#99c794', bg = nil })
+        vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = '#6699cc', bg = nil })
+        vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg = '#ec5f67', bg = nil })
       end,
     })
     -- fold
