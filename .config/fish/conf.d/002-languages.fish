@@ -11,6 +11,7 @@ if test -n "$HOMEBREW_ROOT"
   set -x LIBRARY_PATH $LIBRARY_PATH $HOMEBREW_ROOT/lib
   ## llvm
   if test -d $HOMEBREW_ROOT/opt/llvm
+    set -x PATH $HOMEBREW_ROOT/opt/llvm/bin $PATH
     set -x CPATH $CPATH $HOMEBREW_ROOT/opt/llvm/include
     set -x LDFLAGS -L$HOMEBREW_ROOT/opt/llvm/lib
     set -x CPPFLAGS -I$HOMEBREW_ROOT/opt/llvm/include

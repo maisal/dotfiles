@@ -53,5 +53,11 @@ type -q podman
   and alias docker podman
 type -q lemonade
   and alias lssh 'lemonade server > /dev/null 2>&1 &; ssh $argv; pkill -f lemonade'
+type -q insect
+  and alias calc 'insect'
+if type -q emacsclient
+  alias em "emacsclient -c -a ''"
+  alias ekill "emacsclient -e '(kill-emacs)'"
+end
 
 end

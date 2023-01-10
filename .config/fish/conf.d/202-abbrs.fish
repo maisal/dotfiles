@@ -40,4 +40,8 @@ echo -e "\e[32mload\e[m 202-abbrs"
   end
   type -q bat
     and abbr -ag cat "bat"
+  type -q btm
+    and abbr -ag top "btm -b"
+  type -q delta
+    and abbr -ag diff "delta"
 end #if status --is-interactive

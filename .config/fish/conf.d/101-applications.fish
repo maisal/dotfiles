@@ -16,6 +16,9 @@ end
 type -q bat
   and set -x BAT_THEME "Monokai Extended Origin"
 
+type -q exa
+  and set -x TIME_STYLE "long-iso"
+
 # fd
 if type -q fd
   set -x FD fd
