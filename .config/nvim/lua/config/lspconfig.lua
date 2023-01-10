@@ -8,8 +8,6 @@ local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
 if haslspconfig then
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   local on_attach = function(client, bufnr)
     require('lsp_signature').on_attach()
@@ -70,9 +68,6 @@ if haslspconfig then
   require('mason-lspconfig').setup_handlers {
     function(lsp)
       if lsp == 'sumneko_lua' then
-        local runtime_path = vim.split(package.path, ';')
-        table.insert(runtime_path, 'lua/?.lua')
-        table.insert(runtime_path, 'lua/?/init.lua')
         lspconfig[lsp].setup({
           on_attach = on_attach,
           capabilities = capabilities,
@@ -81,8 +76,6 @@ if haslspconfig then
               runtime = {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
-                -- Setup your lua path
-                path = runtime_path,
               },
               diagnostics = {
                 -- Get the language server to recognize the `vim` global
