@@ -76,16 +76,31 @@ g.netrw_sizestyle = 'H'
 g.netrw_timefmt = '%Y/%m/%d(%a) %H:%M:%S'
 g.netrw_special_syntax = true
 
--- packer
-local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  os.execute('git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  require('plugins')
-  vim.cmd('PackerSync')
-else
-  autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'PackerCompile' })
-  require('plugins')
+-- lazy
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
+
+-- packer
+-- local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
+-- if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+--   os.execute('git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+--   require('plugins')
+--   vim.cmd('PackerSync')
+-- else
+--   autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'PackerCompile' })
+--   require('plugins')
+-- end
 
 -- colorscheme
 local colorscheme = 'OceanicNext'
