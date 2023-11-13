@@ -1,8 +1,8 @@
-local fn = vim.fn -- vim function
-local env = vim.env -- environment variable
-local opt = vim.opt -- global option
+local fn = vim.fn               -- vim function
+local env = vim.env             -- environment variable
+local opt = vim.opt             -- global option
 local opt_local = vim.opt_local -- local option
-local g = vim.g -- global variable
+local g = vim.g                 -- global variable
 local autocmd = vim.api.nvim_create_autocmd
 
 -- setup python3
@@ -24,9 +24,11 @@ opt.showmatch = true
 opt.matchtime = 1
 opt.list = true
 opt.listchars = 'tab:»-,trail:~,extends:»,precedes:«,nbsp:◦,eol:↵'
+opt.fillchars = 'vert:│,foldopen:\\u25bd,foldclose:\\u25b7,eob:~'
 
 opt.display = 'lastline'
 opt.laststatus = 3
+opt.cmdheight = 0
 opt.showcmd = false
 opt.title = true
 opt.cursorline = true
@@ -62,7 +64,7 @@ opt.softtabstop = 2
 -- Cursor
 opt.scrolljump = 1
 opt.scrolloff = 3
-opt.whichwrap = 'b,s,h,l,<,>,[,]'
+opt.whichwrap = 'b,s,<,>,[,]'
 opt.virtualedit = 'onemore'
 
 -- Mouse

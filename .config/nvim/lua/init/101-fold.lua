@@ -12,7 +12,7 @@ function _G.NeatFoldText()
   local lines_count = vim.v.foldend - vim.v.foldstart + 1
   local lines_count_text = '| ' .. ('%10s'):format(lines_count .. ' lines') .. ' |'
   local foldchar = vim.o.fillchars:match([[fold:(.)]]) or ''
-  local foldtextstart = (('+'):rep(vim.v.foldlevel) .. foldchar:rep(vim.v.foldlevel * 2) .. line):sub(
+  local foldtextstart = ((' '):rep(vim.v.foldlevel) .. foldchar:rep(vim.v.foldlevel * 2) .. line):sub(
     1,
     math.floor((api.nvim_win_get_width(0) * 2) / 3) + 1
   )

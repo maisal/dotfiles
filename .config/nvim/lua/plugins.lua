@@ -110,13 +110,13 @@ return {
   {
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
-    {
-      'j-hui/fidget.nvim',
-      version = "legacy",
-      config = function()
-        require('fidget').setup()
-      end,
-    },
+    -- {
+    --   'j-hui/fidget.nvim',
+    --   version = "legacy",
+    --   config = function()
+    --     require('fidget').setup()
+    --   end,
+    -- },
     { 'hrsh7th/cmp-nvim-lsp' },
     {
       'neovim/nvim-lspconfig',
