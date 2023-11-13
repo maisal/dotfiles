@@ -23,17 +23,19 @@ echo -e "\e[32mload\e[m 202-abbrs"
     abbr -ag pip3_update "python3 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python3 -mpip install -U pip"
   end
   abbr -ag cmake_uninstall 'xargs rmrf < install_manifest.txt'
-  abbr -ag rsync 'rsync -achv --progress --append-verify -n'
+  abbr -ag rsync 'rsync -achv --progress -n'
   # git
   abbr -ag ga 'git add'
   abbr -ag gs 'git status'
   abbr -ag gd 'git diff'
   abbr -ag gc 'git commit'
   if type -q exa
+    abbr -ag l "exa"
     abbr -ag ls "exa --icons"
     abbr -ag la "exa --icons -a"
     abbr -ag ll "exa --icons -la"
-    abbr -ag lt "exa --icons -Tl -L2"
+    abbr -ag lt "exa --icons -T -L3 --color=always | bat -p"
+    abbr -ag ltl "exa --icons -Tl -L3 --color=always | bat -p"
   else
     abbr -ag la "ls -a"
     abbr -ag ll "ls -lha"
@@ -44,4 +46,8 @@ echo -e "\e[32mload\e[m 202-abbrs"
     and abbr -ag top "btm -b"
   type -q delta
     and abbr -ag diff "delta"
+  type -q duf
+    and abbr -ag df "duf"
+  type -q dust
+    and abbr -ag du "dust -r"
 end #if status --is-interactive

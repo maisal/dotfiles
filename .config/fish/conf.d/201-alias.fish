@@ -11,13 +11,15 @@ if test (uname) = 'Darwin'
     # alias rm ' gtimeout 8 grm -Iv --one-file-system'
     alias rmr ' gtimeout 8 grm -r -Iv --one-file-system'
     alias rmrf ' gtimeout 8 grm -rf -v --one-file-system'
-    alias sed 'gsed'
   else
     alias ls "ls -G -F"
     alias mv ' mv -iv'
-    alias rm ' rm -iv --'
+    # alias rm ' rm -iv --'
     alias rmr ' rm -iv -r --'
     alias rmrf ' rm -v -rf --'
+  end
+  if type -q gsed
+    alias sed 'gsed'
   end
 else if test (uname) = 'Linux'
   alias ls "ls -F --color=auto"
@@ -32,10 +34,10 @@ alias cp 'cp -iv'
 alias python 'python3'
 alias reload "exec fish"
 alias etmux "$EDITOR $XDG_CONFIG_HOME/tmux/tmux.conf"
-if type -q $FD; and type -q fzf
-  alias conf "$FD --color=always --type f -HIL . $XDG_CONFIG_HOME|fzf --ansi|xargs -r $EDITOR"
-  alias envim "$EDITOR ($FD --color=always --type f -e lua -e vim -HIL . $XDG_CONFIG_HOME/nvim|fzf --ansi; or echo $XDG_CONFIG_HOME/nvim/init.lua)"
-  alias efish "$EDITOR ($FD --color=always --type f -e fish -HIL . $XDG_CONFIG_HOME/fish|fzf --ansi)"
+if type -q $FD; and type -q $FZF
+  alias conf "$FD --color=always --type f -HIL . $XDG_CONFIG_HOME|$FZF --preview '$FZF_PREVIEW_CMD'|xargs -r $EDITOR"
+  alias envim "$FD --color=always --type f -e lua -e vim -HIL . $XDG_CONFIG_HOME/nvim|$FZF --preview '$FZF_PREVIEW_CMD'|xargs -r $EDITOR"
+  alias efish "$FD --color=always --type f -e fish -HIL . $XDG_CONFIG_HOME/fish|$FZF --preview '$FZF_PREVIEW_CMD'|xargs -r $EDITOR"
 end
 if type -q clang
   alias clang-omp 'clang  -Xpreprocessor -fopenmp -lomp'

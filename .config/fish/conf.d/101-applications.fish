@@ -26,6 +26,9 @@ else if type -q fdfind
   set -x FD fdfind
 end
 
+# fzf
+set -x FZF fzf
+
 # less
 set -x LESS '-R'
 set -x LESSHISTFILE -
@@ -43,8 +46,13 @@ set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 type -q gh
   and eval (gh completion -s fish|source)
 
+if type -q volta
+  set -x VOLTA_HOME $XDG_DATA_HOME/volta
+  set -x PATH $VOLTA_HOME/bin $PATH
+end
+
 # zoxide
-if type -q fd
+if type -q zoxide
   zoxide init fish | source
   set -x _ZO_DATA_DIR $XDG_DATA_HOME/zoxide
 end
