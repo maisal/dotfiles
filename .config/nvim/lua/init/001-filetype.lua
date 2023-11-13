@@ -6,4 +6,7 @@ vim.filetype.add({
   filename = {
     ['tsconfig.json'] = 'jsonc',
   },
+  pattern = {
+    ['.*/git/config.*'] = 'gitconfig',
+  },
 })
