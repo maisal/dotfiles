@@ -33,9 +33,13 @@ EXEC    03;32
 *.zinit    02;37
 
 #{{{ data
-*.csv  01;37
-*.dat  01;37
-*.json 01;37
+*.csv     01;37
+*.dat     01;37
+*.json    01;37
+
+*.db      01;04;37
+*.sqlite  01;04;37
+*.sqlite3 01;04;37
 #}}}
 
 #{{{ document
@@ -79,6 +83,7 @@ EXEC    03;32
 
 #{{{ language
 *.c     33
+*.cc     33
 *.cs    33
 *.csx   33
 *.cpp   33
@@ -105,7 +110,8 @@ EXEC    03;32
 *.sql   32
 *.wl    32
 
-*.h 03;33
+*.h  03;33
+*.hh 03;33
 #}}}
 
 # object, binary
