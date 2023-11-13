@@ -36,7 +36,8 @@ map('n', '<C-w>\\', '<Cmd>vsplit<CR>')
 map('n', '<C-q>', '<Cmd>vsplit<CR>')
 
 -- search, replace
-map('n', '/', '/\\v')
+map('n', [[/]], [[/\v]])
+map('n', '<C-s>', [[:%s/\v]])
 map('n', '<Leader><Leader>', '<Cmd>nohlsearch<CR>')
 
 -- move
