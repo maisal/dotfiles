@@ -10,21 +10,24 @@ case "$OS" in
     ;;
   'Linux' )
     if ! type git > /dev/null 2>&1; then
+      if [ "`whoami`" != "root" ]; then
+        SUDO="sudo"
+      fi
       # Debian/Ubuntu
       if type apt-get > /dev/null 2>&1; then
-        sudo apt-get update
-        sudo apt-get install git
+        $SUDO apt-get update
+        $SUDO apt-get install git
       # Fedora
       elif type dnf > /dev/null 2>&1; then
-        sudo dnf update
-        sudo dnf install git
+        $SUDO dnf update
+        $SUDO dnf install git
       # Arch Linux
       elif type pacman > /dev/null 2>&1; then
-        sudo pacman -Syu git
+        $SUDO pacman -Syu git
       # openSUSE
       elif type zypper > /dev/null 2>&1; then
-        sudo zypper refresh
-        sudo zypper install git
+        $SUDO zypper refresh
+        $SUDO zypper install git
       fi
     fi
     ;;
