@@ -5,6 +5,7 @@
 !.tmux.conf
 !.vimrc
 !.zshenv
+!bootstrap.sh
 !install.sh
 # .config
 !/.config/
