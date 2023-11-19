@@ -1,4 +1,8 @@
 # fzf
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
 export FZF_DEFAULT_COMMAND=''
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 export FZF_FIND_FILE_COMMAND="fd -HI . \$dir"

@@ -12,8 +12,8 @@ setopt list_packed
 setopt nolistbeep 
 
 # history
-[ ! -d $XDG_DATA_HOME/zsh ] && mkdir -p -v $XDG_DATA_HOME/zsh
-HISTFILE=$XDG_DATA_HOME/zsh/history
+[ ! -d $XDG_STATE_HOME/zsh ] && mkdir -p -v $XDG_STATE_HOME/zsh
+HISTFILE=$XDG_STATE_HOME/zsh/history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups

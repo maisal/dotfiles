@@ -21,6 +21,7 @@ end
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_STATE_HOME $HOME/.local/state
 
 test -d $XDG_CONFIG_HOME
   or mkdir -p $XDG_CONFIG_HOME
@@ -28,6 +29,8 @@ test -d $XDG_CACHE_HOME
   or mkdir -p $XDG_CACHE_HOME
 test -d $XDG_DATA_HOME
   or mkdir -p $XDG_DATA_HOME
+test -d $XDG_STATE_HOME
+  or mkdir -p $XDG_STATE_HOME
 
 not string match -q /usr/local/bin $PATH
   and set -x PATH /usr/local/bin $PATH

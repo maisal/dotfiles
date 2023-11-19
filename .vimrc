@@ -71,7 +71,7 @@ tnoremap <C-w><C-[> <C-w>N
 if !1 | finish | endif
 
 syntax on
-colorscheme torte
+colorscheme desert
 
 function! GetStatusLine()
   let m=mode()

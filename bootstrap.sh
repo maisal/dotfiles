@@ -15,19 +15,19 @@ case "$OS" in
       fi
       # Debian/Ubuntu
       if type apt-get > /dev/null 2>&1; then
-        $SUDO apt-get update
-        $SUDO apt-get install git
+        $SUDO apt-get update -y
+        $SUDO apt-get install -y git
       # Fedora
       elif type dnf > /dev/null 2>&1; then
-        $SUDO dnf update
-        $SUDO dnf install git
+        $SUDO dnf update -y
+        $SUDO dnf install -y git
       # Arch Linux
       elif type pacman > /dev/null 2>&1; then
-        $SUDO pacman -Syu git
+        $SUDO pacman -Syu --noconfirm git
       # openSUSE
       elif type zypper > /dev/null 2>&1; then
-        $SUDO zypper refresh
-        $SUDO zypper install git
+        $SUDO zypper --non-interactive refresh
+        $SUDO zypper --non-interactive install git
       fi
     fi
     ;;
@@ -36,5 +36,4 @@ case "$OS" in
     return 1
 esac
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 git clone https://github.com/maisal/dotfiles.git $HOME/dotfiles

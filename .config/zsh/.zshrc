@@ -14,3 +14,5 @@ if [ -d $ZDOTDIR -a -r $ZDOTDIR -a -x $ZDOTRIR ]; then
     fi
   done
 fi
+
+eval $(sheldon source)

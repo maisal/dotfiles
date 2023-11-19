@@ -14,6 +14,8 @@ export XDG_CACHE_HOME=$HOME/.cache
 [ ! -d $XDG_CACHE_HOME ] && mkdir -pv $XDG_CACHE_HOME
 export XDG_DATA_HOME=$HOME/.local/share
 [ ! -d $XDG_DATA_HOME ] && mkdir -pv $XDG_DATA_HOME
+export XDG_STATE_HOME=$HOME/.local/state
+[ ! -d $XDG_STATE_HOME ] && mkdir -pv $XDG_STATE_HOME
 
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
