@@ -1,5 +1,6 @@
 local act = require 'wezterm'.action
 return {
+  default_prog = {'/opt/homebrew/bin/tmux', 'new', '-A', '-s', 'main'},
   keys = {
     {
       key = 'd',

@@ -15,6 +15,9 @@ if [ `uname` = 'Darwin' ]; then
     alias rmr=' rm -iv -r --'
     alias rmrf=' rm -v -rf --'
   fi
+  if type exa > /dev/null 2>&1; then
+    alias ls="exa"
+  fi
 elif [ `uname` = 'Linux' ]; then
   alias ls="ls -F --color=auto"
   alias mv=' timeout 8 mv -iv'

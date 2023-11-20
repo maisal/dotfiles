@@ -4,6 +4,8 @@ echo -e "\e[32mload\e[m 401-plugins"
 
 # fzf
 if type -q fzf
+  set -x FZF_TMUX 1
+  set -x FZF_TMUX_OPTS "-p 80%"
   set -x FZF_LEGACY_KEYBINDINGS 0
 # set -x FZF_COMPLETE 1
   set -x FZF_DEFAULT_COMMAND ''

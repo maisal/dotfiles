@@ -2,8 +2,8 @@
 bindkey -e
 
 # completion
-autoload -U compinit
-compinit
+autoload -Uz compinit
+compinit -C
 setopt auto_cd 
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -34,8 +34,8 @@ autoload -Uz colors
 colors
 
 # prompt
-autoload -U promptinit
-promptinit
+# autoload -U promptinit
+# promptinit
 
 # help
 autoload -Uz run-help

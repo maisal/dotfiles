@@ -50,4 +50,6 @@ echo -e "\e[32mload\e[m 202-abbrs"
     and abbr -ag df "duf"
   type -q dust
     and abbr -ag du "dust -r"
+  type -q gh
+    and abbr -ag gist "gh gist"
 end #if status --is-interactive
