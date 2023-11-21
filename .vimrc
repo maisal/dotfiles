@@ -73,6 +73,16 @@ if !1 | finish | endif
 syntax on
 colorscheme desert
 
+" Set cursor style
+if has('vim_starting')
+  " Insert mode
+  let &t_SI .= "\e[6 q"
+  " Normal mode
+  let &t_EI .= "\e[2 q"
+  " Replace mode
+  let &t_SR .= "\e[4 q"
+endif
+
 function! GetStatusLine()
   let m=mode()
   if m =~ 'i'
