@@ -30,9 +30,4 @@ if type -q sk
   set -x SKIM_DEFAULT_OPTIONS "--ansi --height 40% --reverse --border --tiebreak=-end"
 end
 
-# iTerm2
-test -n "$ITERM_SESSION_ID"; and type -q tmux
-  and set -x ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX YES
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
-
 end

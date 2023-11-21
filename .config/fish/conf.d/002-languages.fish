@@ -3,6 +3,9 @@ if status --is-login; or test (basename $SHELL) != "fish"
 
 echo -e "\e[32mload\e[m 002-languages"
 
+type -q rtx
+  and rtx activate fish| source
+
 #{{{ C/C++
 set -x CPATH $CPATH /usr/local/include
 set -x LIBRARY_PATH $LIBRARY_PATH /usr/local/lib

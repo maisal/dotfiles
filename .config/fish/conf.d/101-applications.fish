@@ -27,7 +27,7 @@ else if type -q fdfind
 end
 
 # fzf
-set -x FZF fzf
+set -x FZF fzf-tmux
 
 # less
 set -x LESS '-R'
