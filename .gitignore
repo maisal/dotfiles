@@ -78,3 +78,6 @@
 !/.config/zsh/conf.d/
 /.config/zsh/conf.d/*
 !/.config/zsh/conf.d/[0-9]*-*.zsh
+!/.config/zsh/sheldon/
+/.config/zsh/sheldon/*
+!/.config/zsh/sheldon/plugins.toml
