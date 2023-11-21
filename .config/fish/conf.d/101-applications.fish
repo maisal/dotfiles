@@ -51,6 +51,10 @@ if type -q volta
   set -x PATH $VOLTA_HOME/bin $PATH
 end
 
+# op
+test -f $XDG_CONFIG_HOME/op/plugin.sh
+  source $XDG_CONFIG_HOME/op/plugins.sh
+
 # zoxide
 if type -q zoxide
   zoxide init fish | source
