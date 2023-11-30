@@ -85,6 +85,7 @@ $character"""
 right_format = """
 $time"""
 [character]
+format = "ν$symbol "
 vimcmd_symbol = '[❮](bold blue)'
 [time]
 disabled = false

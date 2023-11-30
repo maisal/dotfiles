@@ -222,10 +222,13 @@ return {
   {
     'numToStr/Comment.nvim',
     lazy = true,
-    event = 'VimEnter',
+    event = 'BufEnter',
+    config = function()
+      require("Comment").setup()
+    end,
     keys = {
-      { "<C-;>", "<Plug>(comment_toggle_linewise_current)" },
-      { "<C-;>", "<Plug>(comment_toggle_linewise_visual)", mode = "v" },
+      { "<C-l>", "<Plug>(comment_toggle_linewise_current)" },
+      { "<C-l>", "<Plug>(comment_toggle_linewise_visual)", mode = "v" },
     },
     opts = {
       mappings = {
