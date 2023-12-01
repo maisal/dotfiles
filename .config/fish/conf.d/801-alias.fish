@@ -37,7 +37,7 @@ alias etmux "$EDITOR $XDG_CONFIG_HOME/tmux/tmux.conf"
 if type -q $FD; and type -q $FZF
   alias conf "$FD --color=always --type f -HIL . $XDG_CONFIG_HOME|$FZF --preview '$FZF_PREVIEW_CMD'|xargs -r $EDITOR"
   alias envim "$FD --color=always --type f -e lua -e vim -HIL . $XDG_CONFIG_HOME/nvim|$FZF --preview '$FZF_PREVIEW_CMD'|xargs -r $EDITOR"
-  alias efish "$FD --color=always --type f -e fish -HIL . $XDG_CONFIG_HOME/fish|$FZF --preview '$FZF_PREVIEW_CMD'|xargs -r $EDITOR"
+  alias efish "$FD --color=always --type f -e fish -HIL . $XDG_CONFIG_HOME/fish|$FZF $FZF_TMUX_OPTS --preview '$FZF_PREVIEW_CMD'|xargs -r $EDITOR"
 end
 if type -q clang
   alias clang-omp 'clang  -Xpreprocessor -fopenmp -lomp'
