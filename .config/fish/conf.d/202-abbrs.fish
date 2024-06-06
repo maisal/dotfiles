@@ -23,7 +23,7 @@ echo -e "\e[32mload\e[m 202-abbrs"
     abbr -ag pip3_update "python3 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python3 -mpip install -U pip"
   end
   abbr -ag cmake_uninstall 'xargs rmrf < install_manifest.txt'
-  abbr -ag rsync 'rsync -achv --progress -n'
+  abbr -ag rsync 'rsync -achvzP -n'
   # git
   abbr -ag ga 'git add'
   abbr -ag gs 'git status'

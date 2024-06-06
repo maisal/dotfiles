@@ -1,5 +1,4 @@
 local wezterm = require 'wezterm'
-local act = wezterm.action
 
 local function update_config(c1, c2)
   for k, v in pairs(c2) do
@@ -23,6 +22,7 @@ local configs = {
   color_scheme = "Oceanic-Next",
   window_background_opacity = 0.9,
   scrollback_lines = 10000,
+  font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Regular' }),
 }
 
 if wezterm.target_triple:match 'darwin' then
