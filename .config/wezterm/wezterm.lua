@@ -1,5 +1,4 @@
 local wezterm = require 'wezterm'
-local act = wezterm.action
 
 local function update_config(c1, c2)
   for k, v in pairs(c2) do
@@ -27,6 +26,11 @@ local configs = {
 
 if wezterm.target_triple:match 'darwin' then
   update_config(configs, require 'darwin')
+end
+
+local exists, local_configs = pcall(require, 'local')
+if exists then
+  update_config(configs, local_configs)
 end
 
 return configs
