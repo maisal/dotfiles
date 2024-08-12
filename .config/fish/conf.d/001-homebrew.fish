@@ -1,6 +1,8 @@
 if status --is-login; or test (basename $SHELL) != "fish"
 
-echo -e "\e[32mload\e[m 001-homebrew"
+if status --is-interactive
+  echo -e "\e[32mload\e[m 001-homebrew"
+end
 
 if test (uname) = 'Darwin'
   type -q /usr/local/bin/brew

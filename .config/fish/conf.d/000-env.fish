@@ -1,6 +1,8 @@
 if status --is-login
 
-echo -e "\e[32mload\e[m 000-env"
+if status --is-interactive
+  echo -e "\e[32mload\e[m 000-env"
+end
 
 umask 022
 

@@ -1,10 +1,12 @@
 # vim:set foldmethod=marker:
 if status --is-login; or test (basename $SHELL) != "fish"
 
-echo -e "\e[32mload\e[m 002-languages"
+if status --is-interactive
+  echo -e "\e[32mload\e[m 002-languages"
+end
 
-type -q rtx
-  and rtx activate fish| source
+type -q mise
+  and mise activate fish| source
 
 #{{{ C/C++
 set -x CPATH $CPATH /usr/local/include

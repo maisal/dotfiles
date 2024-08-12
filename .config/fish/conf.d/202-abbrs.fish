@@ -29,13 +29,13 @@ echo -e "\e[32mload\e[m 202-abbrs"
   abbr -ag gs 'git status'
   abbr -ag gd 'git diff'
   abbr -ag gc 'git commit'
-  if type -q exa
-    abbr -ag l "exa"
-    abbr -ag ls "exa --icons"
-    abbr -ag la "exa --icons -a"
-    abbr -ag ll "exa --icons -la"
-    abbr -ag lt "exa --icons -T -L3 --color=always | bat -p"
-    abbr -ag ltl "exa --icons -Tl -L3 --color=always | bat -p"
+  if type -q eza
+    abbr -ag l "eza"
+    abbr -ag ls "eza --icons=auto"
+    abbr -ag la "eza --icons=auto -a"
+    abbr -ag ll "eza --icons=auto -la"
+    abbr -ag lt "eza --icons=auto -T -L3 --color=always | bat -p"
+    abbr -ag ltl "eza --icons=auto -Tl -L3 --color=always | bat -p"
   else
     abbr -ag la "ls -a"
     abbr -ag ll "ls -lha"
