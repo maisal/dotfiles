@@ -6,6 +6,7 @@ table.insert(components.active, {})
 table.insert(components.active, {})
 table.insert(components.active, {})
 
+
 local colors = {
   base00 = '#1b2b34',
   base01 = '#343d46',
@@ -120,6 +121,31 @@ components.active[1][3] = {
   -- icon = ''
 }
 
+components.active[1][4] = {
+  provider = function()
+    local mode = ""
+    if vim.fn["skkeleton#is_enabled"] then
+      mode = vim.g["skkeleton#mode"]
+      if mode == "hira" then
+        mode = "⟨あ⟩"
+      elseif mode == "kata" then
+        mode = "⟨ア⟩"
+      elseif mode == "hankata" then
+        mode = "⟨ｱ⟩"
+      elseif mode == "zenkaku" then
+        mode = "⟨Ａ⟩"
+      else
+        mode = "⟨A⟩"
+      end
+    end
+    return mode
+  end,
+  hl = {
+    fg = 'white',
+    style = 'bold',
+  },
+}
+
 components.active[2][1] = {
   provider = 'diagnostic_errors',
   hl = {
@@ -164,7 +190,7 @@ components.active[2][6] = {
 components.active[3][1] = {
   provider = 'file_encoding',
   hl = { fg = 'white', style = 'bold' },
-  right_sep={' '},
+  right_sep = { ' ' },
 }
 components.active[3][2] = {
   provider = 'file_format',
@@ -181,11 +207,11 @@ components.active[3][2] = {
       },
     },
   },
-  right_sep={' '},
+  right_sep = { ' ' },
 }
 components.active[3][3] = {
   provider = 'file_type',
-  hl = { fg = 'white', style = 'bold', bg=nil },
+  hl = { fg = 'white', style = 'bold', bg = nil },
   left_sep = {
     {
       str = 'slant_left_2_thin',
@@ -198,7 +224,7 @@ components.active[3][3] = {
       },
     },
   },
-  right_sep={' '},
+  right_sep = { ' ' },
 }
 components.active[3][4] = {
   provider = 'line_percentage',
@@ -234,4 +260,4 @@ require('feline').setup({
   components = components,
   vi_mode_colors = vi_mode_colors,
 })
-require('feline').winbar.setup()
+-- require('feline').winbar.setup()

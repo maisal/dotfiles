@@ -71,7 +71,21 @@ opt.virtualedit = 'onemore'
 opt.mouse = 'a'
 opt.mousefocus = false
 
+-- GUI
+opt.guifont = 'JetBrainsMono Nerd Font:h13'
+
+if g.neovide then
+  g.neovide_transparency = 0.8
+  g.neovide_show_border = false
+  g.neovide_cursor_animation_length = 0
+  g.neovide_scroll_animation_far_lines = 0
+  g.neovide_scroll_animation_far_lines = 0
+  g.neovide_unlink_border_highlights = true
+end
+
 -- netrw
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 g.netrw_liststyle = 1
 g.netrw_banner = 0
 g.netrw_sizestyle = 'H'

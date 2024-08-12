@@ -67,7 +67,7 @@ if haslspconfig then
   -- for _, lsp in ipairs(servers) do
   require('mason-lspconfig').setup_handlers {
     function(lsp)
-      if lsp == 'sumneko_lua' then
+      if lsp == 'lua_ls' then
         lspconfig[lsp].setup({
           on_attach = on_attach,
           capabilities = capabilities,

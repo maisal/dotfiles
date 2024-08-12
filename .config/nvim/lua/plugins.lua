@@ -1,6 +1,20 @@
 return {
-  { 'vim-denops/denops.vim', lazy = false },
-  { 'nvim-lua/plenary.nvim', lazy = false },
+  {
+    'vim-denops/denops.vim',
+    lazy = false,
+    init = function()
+      vim.g["denops#server#deno_args"] = { '-q', '-A', '--no-lock', '--unstable-kv' }
+    end
+  },
+  { 'nvim-lua/plenary.nvim',   lazy = false },
+  {
+    'vim-skk/skkeleton',
+    lazy = true,
+    event = "VimEnter",
+    config = function()
+      require('config.skkeleton')
+    end,
+  },
   -- completion
   {
     'hrsh7th/nvim-cmp',
@@ -69,7 +83,12 @@ return {
   { 'mityu/vim-applescript', lazy = true, ft = 'applescript' },
   { 'vmchale/ion-vim',       lazy = true, ft = 'ion' },
   -- use {'sheerun/vim-polyglot'}
-  -- use {'JuliaEditorSupport/julia-vim', lazy=true, ft='julia'}
+  {
+    'JuliaEditorSupport/julia-vim',
+    init = function()
+      vim.g.latex_to_unicode_file_types = ".*"
+    end
+  },
   {
     'lervag/vimtex',
     lazy = true,
@@ -110,13 +129,12 @@ return {
   {
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
-    -- {
-    --   'j-hui/fidget.nvim',
-    --   version = "legacy",
-    --   config = function()
-    --     require('fidget').setup()
-    --   end,
-    -- },
+    {
+      'j-hui/fidget.nvim',
+      config = function()
+        require('fidget').setup({})
+      end,
+    },
     { 'hrsh7th/cmp-nvim-lsp' },
     {
       'neovim/nvim-lspconfig',
@@ -178,7 +196,7 @@ return {
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       },
       keys = {
-        { '<C-b>', '<Cmd>Telescope buffers<CR>' }
+        { '<M-b>', '<Cmd>Telescope buffers<CR>' }
       },
       config = function()
         require('telescope').load_extension('frecency')
@@ -198,6 +216,16 @@ return {
     },
   },
   -- file explorer
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons' },
+    },
+    config = function()
+      require("nvim-tree").setup()
+      vim.keymap.set('n', '<M-f>', ':NvimTreeToggle<CR>')
+    end
+  },
   -- status line
   {
     { 'kyazdani42/nvim-web-devicons' },
@@ -213,10 +241,7 @@ return {
   {
     'machakann/vim-sandwich',
     lazy = true,
-    keys = 's',
-    config = function()
-      vim.keymap.set({ 'n', 'v' }, 's', '<Nop>')
-    end,
+    event = "VimEnter",
   },
   { 'tpope/vim-repeat',         lazy = true },
   {
@@ -227,8 +252,8 @@ return {
       require("Comment").setup()
     end,
     keys = {
-      { "<C-l>", "<Plug>(comment_toggle_linewise_current)" },
-      { "<C-l>", "<Plug>(comment_toggle_linewise_visual)", mode = "v" },
+      { "<C-;>", "<Plug>(comment_toggle_linewise_current)" },
+      { "<C-;>", "<Plug>(comment_toggle_linewise_visual)", mode = "v" },
     },
     opts = {
       mappings = {
