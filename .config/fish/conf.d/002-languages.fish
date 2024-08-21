@@ -49,7 +49,7 @@ else
 end
 # test (uname) = Darwin -a -d /Applications/Python\ 3.10
 #   and set -x PATH /Library/Frameworks/Python.framework/Versions/3.10/bin $PATH
-set -x PYTHONPATH $HOME/.local/lib/python $PYTHONPATH
+# set -x PYTHONPATH $HOME/.local/lib/python $PYTHONPATH
 set -x JUPYTER_PATH $PYTHONPATH
 set -x IPYTHONDIR $XDG_CONFIG_HOME/jupyter
 set -x JUPYTER_CONFIG_DIR $IPYTHONDIR
