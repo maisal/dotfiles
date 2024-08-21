@@ -22,7 +22,10 @@ local configs = {
   color_scheme = "Oceanic-Next",
   window_background_opacity = 0.9,
   scrollback_lines = 10000,
-  font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Regular' }),
+  font = wezterm.font_with_fallback({
+    { family = 'JetBrainsMono Nerd Font', weight = 'Regular' },
+    'BIZ UDGothic',
+  }),
 }
 
 if wezterm.target_triple:match 'darwin' then
