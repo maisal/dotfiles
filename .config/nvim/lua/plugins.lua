@@ -78,6 +78,10 @@ return {
     config = function()
       require('config.treesitter')
     end,
+    dependencies = {
+      -- NOTE: additional parser
+      { "nushell/tree-sitter-nu" },
+    },
   },
   { 't-b/igor-pro-vim',      lazy = true, ft = 'igorpro' },
   { 'mityu/vim-applescript', lazy = true, ft = 'applescript' },
