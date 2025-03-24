@@ -16,7 +16,7 @@ end
 type -q bat
   and set -x BAT_THEME "Monokai Extended Origin"
 
-type -q exa
+type -q eza
   and set -x TIME_STYLE "long-iso"
 
 # fd
@@ -37,7 +37,7 @@ set -x LESSHISTFILE -
 set -x PATH $HOMEBREW_ROOT/opt/openssl@1.1/bin $PATH
 
 # gnupg
-set -x GNUPGHOME $XDG_CONFIG_HOME/gnupg
+set -x GNUPGHOME $XDG_DATA_HOME/gnupg
 
 # Docker
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
@@ -53,7 +53,7 @@ end
 
 # op
 test -f $XDG_CONFIG_HOME/op/plugin.sh
-  source $XDG_CONFIG_HOME/op/plugins.sh
+  and source $XDG_CONFIG_HOME/op/plugins.sh
 
 # zoxide
 if type -q zoxide
