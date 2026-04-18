@@ -3,7 +3,7 @@ if status --is-interactive
 echo -e "\e[32mload\e[m 202-abbrs"
 
 if test (uname) = 'Darwin'
-  if (uname -m) = 'arm64'
+  if test (uname -m) = 'arm64'
     abbr -ag X86 'arch --arch=x86_64 '
     abbr -ag ARM 'arch --arch=arm64 '
   end

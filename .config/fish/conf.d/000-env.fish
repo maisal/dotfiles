@@ -7,9 +7,12 @@ end
 umask 022
 
 # reset PATH variable
-if test (uname) = 'Darwin'
-  set -x PATH
-  eval (/usr/libexec/path_helper -c|/usr/bin/sed -e "s/setenv/set -x/" -e "s/\"//g" -e "s/:/ /g" -e "s/;//")
+if test (uname) = Darwin
+    for dir in /opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin /usr/local/sbin $HOME/.local/bin
+        if test -d $dir
+            fish_add_path --global $dir
+        end
+    end
 end
 
 if locale -a|grep -qE "ja_JP\.(UTF-8|utf8)"
