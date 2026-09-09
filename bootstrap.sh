@@ -1,11 +1,16 @@
 #!/bin/sh
 
+set -e
+
 OS=$(uname)
+SUDO=
 
 case "$OS" in
   'Darwin' )
     if ! type git > /dev/null 2>&1; then
       xcode-select --install
+      echo "Complete the Command Line Tools installation, then run this script again."
+      exit 1
     fi
     ;;
   'Linux' )
@@ -28,12 +33,15 @@ case "$OS" in
       elif type zypper > /dev/null 2>&1; then
         $SUDO zypper --non-interactive refresh
         $SUDO zypper --non-interactive install git
+      else
+        echo "No supported package manager found. Install Git, then run this script again." >&2
+        exit 1
       fi
     fi
     ;;
   * )
     echo "This OS is not supported."
-    return 1
+    exit 1
 esac
 
-git clone https://github.com/maisal/dotfiles.git $HOME/dotfiles
+git clone https://github.com/maisal/dotfiles.git "$HOME/dotfiles"
