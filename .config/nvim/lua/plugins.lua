@@ -125,25 +125,13 @@ return {
     },
     { "hrsh7th/cmp-nvim-lsp" },
     {
-      "mason-org/mason-lspconfig.nvim",
-      opts = {},
-      dependencies = {
-        { "mason-org/mason.nvim", opts = {} },
-        "neovim/nvim-lspconfig",
-      },
-    },
-    {
-      "mason-org/mason.nvim",
-      opts = {},
-    },
-    {
       "stevearc/conform.nvim",
       cmd = "ConformInfo",
       keys = {
         {
           "<leader>F",
           function()
-            require("conform").format({})
+            require("conform").format()
           end,
           desc = "format code",
         },
@@ -154,6 +142,11 @@ return {
     },
     {
       "neovim/nvim-lspconfig",
+      dependencies = {
+        { "mason-org/mason.nvim", lazy = false, opts = {} },
+        "hrsh7th/cmp-nvim-lsp",
+        "ray-x/lsp_signature.nvim",
+      },
       config = function()
         require("config.lspconfig")
       end,
@@ -410,4 +403,11 @@ return {
     end,
   },
   { "dstein64/vim-startuptime", lazy = true, cmd = { "StartupTime" } },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+
+    -- Completion for `blink.cmp`
+    -- dependencies = { "saghen/blink.cmp" },
+  },
 }
