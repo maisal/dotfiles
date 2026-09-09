@@ -33,12 +33,5 @@ if type vim > /dev/null 2>&1; then
   ln -siv $DOT_DIR/.vimrc $HOME/
 fi
 
-# create $HOME/.tmux.conf when tmux version < 3.2
-if type tmux > /dev/null 2>&1; then
-  if ! tmux -V|grep -qE '3\.[2-9]'; then
-    ln -siv $DOT_DIR/.tmux.conf $HOME/
-  fi
-fi
-
 ln -siv $DOT_DIR/.config/* $XDG_CONFIG_HOME/
 

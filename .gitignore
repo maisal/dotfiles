@@ -64,7 +64,6 @@
 !/.config/tmux/
 /.config/tmux/*
 !/.config/tmux/tmux.conf
-!/.config/tmux/scripts/
 ## wezterm
 !/.config/wezterm/
 /.config/wezterm/*
