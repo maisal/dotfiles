@@ -6,8 +6,8 @@ fi
 echo -e "\e[32mload\e[m bashrc"
 
 if [[ $- == *i* ]]; then
-  [ ! -d $XDG_DATA_HOME/bash ] && mkdir -p $XDG_DATA_HOME/bash
-  export HISTFILE=$XDG_STATE_HOME/bash/history
+  export HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/bash/history"
+  mkdir -p "${HISTFILE%/*}"
 
   if [ `uname` = 'Darwin' ]; then
     if [ -d $HOMEBREW_ROOT/opt/coreutils ]; then
