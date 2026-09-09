@@ -6,9 +6,3 @@ require("conform").setup({
     lua = { "stylua" },
   },
 })
-
-vim.keymap.set("n", "<leader>F", function()
-  require("conform").format({})
-end, {
-  desc = "format code",
-})

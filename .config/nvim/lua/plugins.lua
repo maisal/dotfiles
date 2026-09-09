@@ -6,7 +6,7 @@ return {
       vim.g["denops#server#deno_args"] = { "-q", "-A", "--no-lock", "--unstable-kv" }
     end,
   },
-  { "nvim-lua/plenary.nvim", lazy = false },
+  { "nvim-lua/plenary.nvim", lazy = true },
   {
     "vim-skk/skkeleton",
     lazy = true,
@@ -116,20 +116,6 @@ return {
   },
   { "voldikss/vim-mma", lazy = true, ft = { "m", "wls" } },
   { "hjson/vim-hjson", lazy = true, ft = "hjson" },
-  -- use({
-  --   'ckipp01/stylua-nvim',
-  --   lazy = true,
-  --   ft = 'lua',
-  --   config = function()
-  --     vim.keymap.set('n', '<Space>F', function()
-  --       require('stylua-nvim').format_file()
-  --     end, { buffer = true })
-  --   end,
-  -- })
-  -- lsp
-  -- use {'nvim-lua/completion-nvim', lazy=true, event='VimEnter',
-  --       config=function() require('config.completion-nvim') end
-  --     }
   {
     {
       "j-hui/fidget.nvim",
@@ -152,8 +138,16 @@ return {
     },
     {
       "stevearc/conform.nvim",
-      lazy = true,
-      event = { "BufRead", "BufNewFile" },
+      cmd = "ConformInfo",
+      keys = {
+        {
+          "<leader>F",
+          function()
+            require("conform").format({})
+          end,
+          desc = "format code",
+        },
+      },
       config = function()
         require("config.conform")
       end,
@@ -167,20 +161,41 @@ return {
   },
   {
     "stevearc/aerial.nvim",
+    cmd = {
+      "AerialToggle",
+      "AerialOpen",
+      "AerialOpenAll",
+      "AerialClose",
+      "AerialCloseAll",
+      "AerialNext",
+      "AerialPrev",
+      "AerialGo",
+      "AerialInfo",
+      "AerialNavToggle",
+      "AerialNavOpen",
+      "AerialNavClose",
+    },
     config = function()
       require("aerial").setup({ backends = { "treesitter" } })
     end,
   },
   {
     "hedyhli/outline.nvim",
-    config = function()
-      -- Example mapping to toggle outline
-      vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
-
-      require("outline").setup({
-        -- Your setup opts here (leave empty to use defaults)
-      })
-    end,
+    cmd = {
+      "Outline",
+      "OutlineOpen",
+      "OutlineClose",
+      "OutlineFocusOutline",
+      "OutlineFocusCode",
+      "OutlineFocus",
+      "OutlineStatus",
+      "OutlineFollow",
+      "OutlineRefresh",
+    },
+    keys = {
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle Outline" },
+    },
+    opts = {},
   },
   {
     "folke/trouble.nvim",
@@ -230,8 +245,10 @@ return {
   { "simrat39/rust-tools.nvim", lazy = true, ft = "rust" },
   {
     "simrat39/symbols-outline.nvim",
+    cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
     config = function()
       require("config.symbols-outline")
+      require("symbols-outline").setup(vim.g.symbols_outline)
     end,
   },
   -- search
@@ -291,14 +308,18 @@ return {
   },
   -- file explorer
   {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
+    "nvim-mini/mini.files",
+    version = "*",
+    keys = {
+      {
+        "<M-f>",
+        function()
+          require("mini.files").open()
+        end,
+        desc = "Open file explorer",
+      },
     },
-    config = function()
-      require("nvim-tree").setup()
-      vim.keymap.set("n", "<M-f>", ":NvimTreeToggle<CR>")
-    end,
+    opts = {},
   },
   -- status line
   {

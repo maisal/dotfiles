@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 local fn = vim.fn -- vim function
 local env = vim.env -- environment variable
 local opt = vim.opt -- global option
@@ -106,17 +108,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
-
--- packer
--- local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
--- if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
---   os.execute('git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
---   require('plugins')
---   vim.cmd('PackerSync')
--- else
---   autocmd('BufWritePost', { pattern = 'plugins.lua', command = 'PackerCompile' })
---   require('plugins')
--- end
 
 -- colorscheme
 local colorscheme = "OceanicNext"
