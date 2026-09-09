@@ -11,8 +11,8 @@ if [ -n "$HOMEBREW_ROOT" ]; then
   ## openblas
   export CPATH=$CPATH:$HOMEBREW_ROOT/opt/openblas/include
   export LIBRARY_PATH=$LIBRARY_PATH:$HOMEBREW_ROOT/opt/openblas/lib
-  export LDFLAGS=$LDFLAGS:-L$HOMEBREW_ROOT/opt/openblas/lib
-  export CPPFLAGS=$CPPFLAGS:-I$HOMEBREW_ROOT/opt/openblas/include
+  export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L$HOMEBREW_ROOT/opt/openblas/lib"
+  export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-I$HOMEBREW_ROOT/opt/openblas/include"
   export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOMEBREW_ROOT/opt/openblas/lib/pkgconfig
 fi
 #}}}

@@ -41,15 +41,15 @@ alias mkdir='mkdir -p -v'
 if type tmux > /dev/null 2>&1; then
   alias tmux='tmux -2'
 fi
-alias cp 'cp -iv'
-alias python 'python3'
+alias cp='cp -iv'
+alias python='python3'
 if type jq > /dev/null 2>&1; then
   alias pip_update="python -mpip list --outdated --format=json | jq -r '.[].name' | xargs python -mpip install -U pip"
   alias pip2_update="python2 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python2 -mpip install -U pip"
   alias pip3_update="python3 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python3 -mpip install -U pip"
 fi
 alias ezsh="$EDITOR \$($FD --color=always --type f -HIL '.zshrc$|\d+-.*zsh$' $ZDOTDIR|fzf --ansi || echo $ZDOTDIR/.zshrc)"
-alias rzsh="source $XDG_CONFIG_HOME/fish/config.fish"
+alias rzsh='source "$ZDOTDIR/.zshrc"'
 alias reload="exec zsh"
 alias envim="$EDITOR \$($FD --color=always --type f -e lua -HIL . $XDG_CONFIG_HOME/nvim|fzf --ansi || echo $XDG_CONFIG_HOME/nvim/init.lua)"
 if type speedtest-cli > /dev/null 2>&1; then

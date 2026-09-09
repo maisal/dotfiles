@@ -11,7 +11,7 @@ if [ ! -r "$sheldon_zsh" -o "$sheldon_toml" -nt "$sheldon_zsh" ]; then
 fi
 
 # read conf.d/*.zsh
-if [ -d $ZDOTDIR -a -r $ZDOTDIR -a -x $ZDOTRIR ]; then
+if [[ -d "$ZDOTDIR" && -r "$ZDOTDIR" && -x "$ZDOTDIR" ]]; then
   for i in $ZDOTDIR/conf.d/*; do
     if [[ ${i##*/} = *.zsh ]] && [ \( -f $i -o -L $i \) -a -r $i ]; then
       if [ ! -f ${i}.zwc -o $i -nt $i.zwc ]; then
