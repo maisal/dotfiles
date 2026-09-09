@@ -24,7 +24,7 @@ if type -q jq
   abbr -ag pip2_update "python2 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python2 -mpip install -U pip"
   abbr -ag pip3_update "python3 -mpip list --outdated --format=json | jq -r '.[].name' | xargs python3 -mpip install -U pip"
 end
-abbr -ag cmake_uninstall 'xargs rmrf < install_manifest.txt'
+abbr -ag cmake_uninstall 'while read -l file; command rm -v -- "$file"; end < install_manifest.txt'
 abbr -ag rsync 'rsync -achvzP -n'
 # git
 abbr -ag ga 'git add'

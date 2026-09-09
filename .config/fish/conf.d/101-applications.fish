@@ -52,7 +52,7 @@ if type -q volta
 end
 
 # op
-test -f $XDG_CONFIG_HOME/op/plugin.sh
+test -f $XDG_CONFIG_HOME/op/plugins.sh
   and source $XDG_CONFIG_HOME/op/plugins.sh
 
 # zoxide

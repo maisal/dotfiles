@@ -5,9 +5,6 @@ if status --is-interactive
   echo -e "\e[32mload\e[m 002-languages"
 end
 
-type -q mise
-  and mise activate fish| source
-
 #{{{ C/C++
 set -x CPATH $CPATH /usr/local/include
 set -x LIBRARY_PATH $LIBRARY_PATH /usr/local/lib
@@ -31,7 +28,7 @@ if test -n "$HOMEBREW_ROOT"
     set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH $HOMEBREW_ROOT/opt/openblas/lib/pkgconfig
   end
   if test -d $HOMEBREW_ROOT/opt/zlib
-    set -x CPATH $CPATH $HOMEBREW_ROOT/opt/zlib/liclude
+    set -x CPATH $CPATH $HOMEBREW_ROOT/opt/zlib/include
     set -x LIBRARY_PATH $LIBRARY_PATH $HOMEBREW_ROOT/opt/zlib/lib
     set -x LDFLAGS $LDFLAGS -L$HOMEBREW_ROOT/opt/zlib/lib
     set -x CPPFLAGS $CPPFLAGS -I$HOMEBREW_ROOT/opt/zlib/include
@@ -93,3 +90,8 @@ type -q $HOMEBREW_ROOT/opt/luajit-openresty/bin/luajit
 #}}}
 
 end # if status --is-login; or test (basename $SHELL) != "fish"
+
+if status --is-interactive
+  type -q mise
+    and mise activate fish | source
+end
