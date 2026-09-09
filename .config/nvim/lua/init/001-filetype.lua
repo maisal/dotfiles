@@ -1,12 +1,12 @@
 vim.filetype.add({
   extension = {
-    nu = 'nu',
-    instr = 'c',
+    nu = "nu",
+    instr = "c",
   },
   filename = {
-    ['tsconfig.json'] = 'jsonc',
+    ["tsconfig.json"] = "jsonc",
   },
   pattern = {
-    ['.*/git/config.*'] = 'gitconfig',
+    [".*/git/config.*"] = "gitconfig",
   },
 })

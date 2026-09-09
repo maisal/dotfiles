@@ -1,4 +1,4 @@
-local haslspconfig, lspconfig = pcall(require, 'lspconfig')
+local haslspconfig, lspconfig = pcall(require, "lspconfig")
 local function hi(...)
   vim.api.nvim_set_hl(0, ...)
 end
@@ -7,43 +7,43 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
 if haslspconfig then
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   local on_attach = function(client, bufnr)
-    require('lsp_signature').on_attach()
+    require("lsp_signature").on_attach()
 
     -- Mappings.
     local opts = { buffer = true, silent = true }
-    map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    map("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    map("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    map("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+    map("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+    map("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+    map("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+    map("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    map("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+    map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
     -- map('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     -- map('n', '<space>F', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
     -- map('n', '<space>f', '<cmd>lua vim.lsp.buf.range_format()<CR>', opts)
 
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.document_highlight then
-      hi('LspReferenceRead', { reverse = true, bold = true })
-      hi('LspReferenceText', { reverse = true, bold = true })
-      hi('LspReferenceWrite', { reverse = true, bold = true })
+      hi("LspReferenceRead", { reverse = true, bold = true })
+      hi("LspReferenceText", { reverse = true, bold = true })
+      hi("LspReferenceWrite", { reverse = true, bold = true })
       -- augroup('lsp_document_highlight', {})
       -- autocmd('CursorHold', { buffer = 0, callback = vim.lsp.buf.document_highlight })
       -- autocmd('CursorMoved', { buffer = 0, callback = vim.lsp.buf.clear_references })
     end
   end
 
-  vim.lsp.config('*', {
+  vim.lsp.config("*", {
     on_attach = on_attach,
     capabilities = capabilities,
   })
