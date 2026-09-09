@@ -1,385 +1,392 @@
 return {
-	{
-		"vim-denops/denops.vim",
-		lazy = false,
-		init = function()
-			vim.g["denops#server#deno_args"] = { "-q", "-A", "--no-lock", "--unstable-kv" }
-		end,
-	},
-	{ "nvim-lua/plenary.nvim", lazy = false },
-	{
-		"vim-skk/skkeleton",
-		lazy = true,
-		event = "VimEnter",
-		config = function()
-			require("config.skkeleton")
-		end,
-	},
-	-- completion
-	{
-		"hrsh7th/nvim-cmp",
-		lazy = true,
-		event = { "InsertEnter", "CmdLineEnter" },
-		dependencies = {
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "hrsh7th/cmp-cmdline" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			-- { 'dmitmel/cmp-cmdline-history' },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "L3MON4D3/LuaSnip" },
-		},
-		config = function()
-			require("config.nvim-cmp")
-		end,
-	},
-	{
-		"matsui54/denops-popup-preview.vim",
-		dependencies = {
-			{ "vim-denops/denops.vim" },
-			{ "ray-x/lsp_signature.nvim" },
-		},
-		config = function()
-			vim.fn["popup_preview#enable"]()
-		end,
-	},
-	-- colorscheme
-	{
-		"norcalli/nvim-colorizer.lua",
-		lazy = true,
-		event = "BufEnter",
-		config = function()
-			require("colorizer").setup()
-		end,
-	},
-	{ "mhartington/oceanic-next" },
-	{ "wbthomason/vim-nazgul", lazy = true },
-	{ "tomasr/molokai", lazy = true },
-	{ "rafcamlet/nvim-luapad", lazy = true, cmd = { "Lua", "Luapad", "LuaRun" } },
-	{
-		"junegunn/vim-easy-align",
-		lazy = true,
-		keys = {
-			{ "ga", "<Plug>(EasyAlign)", mode = { "x", "n" } },
-		},
-		-- init = function()
-		--   vim.keymap.set({ 'x', 'n' }, 'ga', '<Plug>(EasyAlign)', { silent = true })
-		-- end,
-	},
-	-- syntax
-	{ "vim-scripts/dbext.vim", lazy = true, ft = "sql" },
-	{ "tpope/vim-dadbod", lazy = true, ft = "sql" },
-	{ "peterhoeg/vim-qml", lazy = true, ft = "qml" },
-	{ "ron-rs/ron.vim", lazy = true, ft = "ron" },
-	{
-		"nvim-treesitter/nvim-treesitter",
-		lazy = true,
-		event = "BufEnter",
-		build = ":TSUpdate",
-		config = function()
-			require("config.treesitter")
-		end,
-		dependencies = {
-			-- NOTE: additional parser
-			{ "nushell/tree-sitter-nu" },
-		},
-	},
-	{ "t-b/igor-pro-vim", lazy = true, ft = "igorpro" },
-	{ "mityu/vim-applescript", lazy = true, ft = "applescript" },
-	{ "vmchale/ion-vim", lazy = true, ft = "ion" },
-	-- use {'sheerun/vim-polyglot'}
-	{
-		"JuliaEditorSupport/julia-vim",
-		init = function()
-			vim.g.latex_to_unicode_file_types = ".*"
-		end,
-	},
-	{
-		"lervag/vimtex",
-		lazy = true,
-		ft = "tex",
-		init = function()
-			require("setup.vimtex")
-		end,
-		config = function()
-			require("config.vimtex")
-		end,
-	},
-	{ "ap/vim-css-color", lazy = true, ft = { "css", "html", "sass", "scss", "stylus", "vim" } },
-	{
-		"heavenshell/vim-pydocstring",
-		lazy = true,
-		build = "make install",
-		ft = "python",
-		config = function()
-			vim.g.pydocstring_formatter = "numpy"
-		end,
-	},
-	{ "voldikss/vim-mma", lazy = true, ft = { "m", "wls" } },
-	{ "hjson/vim-hjson", lazy = true, ft = "hjson" },
-	-- use({
-	--   'ckipp01/stylua-nvim',
-	--   lazy = true,
-	--   ft = 'lua',
-	--   config = function()
-	--     vim.keymap.set('n', '<Space>F', function()
-	--       require('stylua-nvim').format_file()
-	--     end, { buffer = true })
-	--   end,
-	-- })
-	-- lsp
-	-- use {'nvim-lua/completion-nvim', lazy=true, event='VimEnter',
-	--       config=function() require('config.completion-nvim') end
-	--     }
-	{
-		{
-			"j-hui/fidget.nvim",
-			config = function()
-				require("fidget").setup({})
-			end,
-		},
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{
-			"mason-org/mason-lspconfig.nvim",
-			opts = {},
-			dependencies = {
-				{ "mason-org/mason.nvim", opts = {} },
-				"neovim/nvim-lspconfig",
-			},
-		},
-		{
-			"mason-org/mason.nvim",
-			opts = {},
-		},
-		{
-			"neovim/nvim-lspconfig",
-			config = function()
-				require("config.lspconfig")
-			end,
-		},
-	},
-	{
-		"stevearc/aerial.nvim",
-		config = function()
-			require("aerial").setup({ backends = { "treesitter" } })
-		end,
-	},
-	{
-		"hedyhli/outline.nvim",
-		config = function()
-			-- Example mapping to toggle outline
-			vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+  {
+    'vim-denops/denops.vim',
+    lazy = false,
+    init = function()
+      vim.g['denops#server#deno_args'] = { '-q', '-A', '--no-lock', '--unstable-kv' }
+    end,
+  },
+  { 'nvim-lua/plenary.nvim', lazy = false },
+  {
+    'vim-skk/skkeleton',
+    lazy = true,
+    event = 'VimEnter',
+    config = function()
+      require('config.skkeleton')
+    end,
+  },
+  -- completion
+  {
+    'hrsh7th/nvim-cmp',
+    lazy = true,
+    event = { 'InsertEnter', 'CmdLineEnter' },
+    dependencies = {
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      -- { 'dmitmel/cmp-cmdline-history' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'L3MON4D3/LuaSnip' },
+    },
+    config = function()
+      require('config.nvim-cmp')
+    end,
+  },
+  {
+    'matsui54/denops-popup-preview.vim',
+    dependencies = {
+      { 'vim-denops/denops.vim' },
+      { 'ray-x/lsp_signature.nvim' },
+    },
+    config = function()
+      vim.fn['popup_preview#enable']()
+    end,
+  },
+  -- colorscheme
+  {
+    'norcalli/nvim-colorizer.lua',
+    lazy = true,
+    event = 'BufEnter',
+    config = function()
+      require('colorizer').setup()
+    end,
+  },
+  { 'mhartington/oceanic-next' },
+  { 'wbthomason/vim-nazgul', lazy = true },
+  { 'tomasr/molokai', lazy = true },
+  { 'rafcamlet/nvim-luapad', lazy = true, cmd = { 'Lua', 'Luapad', 'LuaRun' } },
+  {
+    'junegunn/vim-easy-align',
+    lazy = true,
+    keys = {
+      { 'ga', '<Plug>(EasyAlign)', mode = { 'x', 'n' } },
+    },
+    -- init = function()
+    --   vim.keymap.set({ 'x', 'n' }, 'ga', '<Plug>(EasyAlign)', { silent = true })
+    -- end,
+  },
+  -- syntax
+  { 'vim-scripts/dbext.vim', lazy = true, ft = 'sql' },
+  { 'tpope/vim-dadbod', lazy = true, ft = 'sql' },
+  { 'peterhoeg/vim-qml', lazy = true, ft = 'qml' },
+  { 'ron-rs/ron.vim', lazy = true, ft = 'ron' },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = true,
+    event = 'BufEnter',
+    build = ':TSUpdate',
+    config = function()
+      require('config.treesitter')
+    end,
+    dependencies = {
+      -- NOTE: additional parser
+      { 'nushell/tree-sitter-nu' },
+    },
+  },
+  { 't-b/igor-pro-vim', lazy = true, ft = 'igorpro' },
+  { 'mityu/vim-applescript', lazy = true, ft = 'applescript' },
+  -- use {'sheerun/vim-polyglot'}
+  {
+    'JuliaEditorSupport/julia-vim',
+    init = function()
+      vim.g.latex_to_unicode_file_types = '.*'
+    end,
+  },
+  {
+    'lervag/vimtex',
+    lazy = true,
+    ft = 'tex',
+    init = function()
+      require('setup.vimtex')
+    end,
+    config = function()
+      require('config.vimtex')
+    end,
+  },
+  { 'ap/vim-css-color', lazy = true, ft = { 'css', 'html', 'sass', 'scss', 'stylus', 'vim' } },
+  {
+    'heavenshell/vim-pydocstring',
+    lazy = true,
+    build = 'make install',
+    ft = 'python',
+    config = function()
+      vim.g.pydocstring_formatter = 'numpy'
+    end,
+  },
+  { 'voldikss/vim-mma', lazy = true, ft = { 'm', 'wls' } },
+  { 'hjson/vim-hjson', lazy = true, ft = 'hjson' },
+  -- use({
+  --   'ckipp01/stylua-nvim',
+  --   lazy = true,
+  --   ft = 'lua',
+  --   config = function()
+  --     vim.keymap.set('n', '<Space>F', function()
+  --       require('stylua-nvim').format_file()
+  --     end, { buffer = true })
+  --   end,
+  -- })
+  -- lsp
+  -- use {'nvim-lua/completion-nvim', lazy=true, event='VimEnter',
+  --       config=function() require('config.completion-nvim') end
+  --     }
+  {
+    {
+      'j-hui/fidget.nvim',
+      config = function()
+        require('fidget').setup({})
+      end,
+    },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    {
+      'mason-org/mason-lspconfig.nvim',
+      opts = {},
+      dependencies = {
+        { 'mason-org/mason.nvim', opts = {} },
+        'neovim/nvim-lspconfig',
+      },
+    },
+    {
+      'mason-org/mason.nvim',
+      opts = {},
+    },
+    {
+      "stevearc/conform.nvim",
+      lazy = true,
+      event = { "BufRead", "BufNewFile" },
+      config = function()
+        require("config.conform")
+      end,
+    },
+    {
+      'neovim/nvim-lspconfig',
+      config = function()
+        require('config.lspconfig')
+      end,
+    },
+  },
+  {
+    'stevearc/aerial.nvim',
+    config = function()
+      require('aerial').setup({ backends = { 'treesitter' } })
+    end,
+  },
+  {
+    'hedyhli/outline.nvim',
+    config = function()
+      -- Example mapping to toggle outline
+      vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { desc = 'Toggle Outline' })
 
-			require("outline").setup({
-				-- Your setup opts here (leave empty to use defaults)
-			})
-		end,
-	},
-	{
-		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
-		cmd = "Trouble",
-		keys = {
-			{
-				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
-			},
-			{
-				"<leader>xX",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
-			},
-		},
-	},
-	{
-		"nanotee/sqls.nvim",
-		lazy = true,
-		ft = "sql",
-		config = function()
-			require("config.sqls")
-		end,
-	},
-	{ "simrat39/rust-tools.nvim", lazy = true, ft = "rust" },
-	{
-		"simrat39/symbols-outline.nvim",
-		config = function()
-			require("config.symbols-outline")
-		end,
-	},
-	-- search
-	{
-		{
-			"petertriho/nvim-scrollbar",
-			config = function()
-				require("scrollbar").setup()
-			end,
-		},
-		{
-			"kevinhwang91/nvim-hlslens",
-			lazy = true,
-			keys = {
-				{ "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]] },
-				{ "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]] },
-				{ "*", [[*<Cmd>lua require('hlslens').start()<CR>]] },
-				{ "#", [[#<Cmd>lua require('hlslens').start()<CR>]] },
-				{ "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]] },
-				{ "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]] },
-			},
-			config = function()
-				require("scrollbar.handlers.search").setup()
-			end,
-		},
-	},
-	-- fuzzy finder
-	{
-		{
-			"nvim-telescope/telescope.nvim",
-			lazy = true,
-			cmd = "Telescope",
-			dependencies = {
-				{ "tami5/sqlite.lua" },
-				{ "nvim-telescope/telescope-frecency.nvim" },
-				{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			},
-			keys = {
-				{ "<M-b>", "<Cmd>Telescope buffers<CR>" },
-			},
-			config = function()
-				require("telescope").load_extension("frecency")
-				require("telescope").load_extension("fzf")
-				require("telescope").load_extension("notify")
-				require("telescope").setup({
-					extensions = {
-						fzf = {
-							fuzzy = true,
-							override_generic_sorter = true,
-							override_file_sorter = true,
-							case_mode = "smart_case",
-						},
-					},
-				})
-			end,
-		},
-	},
-	-- file explorer
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
-		},
-		config = function()
-			require("nvim-tree").setup()
-			vim.keymap.set("n", "<M-f>", ":NvimTreeToggle<CR>")
-		end,
-	},
-	-- status line
-	{
-		"nvim-mini/mini.statusline",
-		version = "*",
-		config = function()
-			require("mini.statusline").setup()
-		end,
-	},
-	{
-		{
-			"Bekaboo/dropbar.nvim",
-			-- optional, but required for fuzzy finder support
-			dependencies = {
-				"nvim-telescope/telescope-fzf-native.nvim",
-			},
-		},
-	},
-	-- edit
-	-- use { 'tpope/vim-surround', lazy = true, event = 'VimEnter' }
-	{
-		"machakann/vim-sandwich",
-		lazy = true,
-		event = "VimEnter",
-	},
-	{ "tpope/vim-repeat", lazy = true },
-	{
-		"numToStr/Comment.nvim",
-		lazy = true,
-		event = "BufEnter",
-		config = function()
-			require("Comment").setup()
-		end,
-		keys = {
-			{ "<C-;>", "<Plug>(comment_toggle_linewise_current)" },
-			{ "<C-;>", "<Plug>(comment_toggle_linewise_visual)", mode = "v" },
-		},
-		opts = {
-			mappings = {
-				basic = false,
-				extra = false,
-			},
-		},
-	},
-	{ "dhruvasagar/vim-table-mode", lazy = true, ft = "rst" },
-	-- git
-	{
-		"lewis6991/gitsigns.nvim",
-		lazy = true,
-		event = "BufEnter",
-		config = function()
-			require("gitsigns").setup()
-			vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#99c794", bg = nil })
-			vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#6699cc", bg = nil })
-			vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#ec5f67", bg = nil })
-		end,
-	},
-	-- fold
-	{
-		"tmhedberg/SimpylFold",
-		lazy = true,
-		ft = { "python" },
-		config = function()
-			vim.g.table_mode_corner_corner = "+"
-			vim.g.table_mode_header_fillchar = "="
-		end,
-	},
-	-- notify
-	{
-		"rcarriga/nvim-notify",
-	},
-	-- memo
-	{
-		"glidenote/memolist.vim",
-		lazy = true,
-		cmd = { "MemoNew", "MemoList", "MemoGrep" },
-		init = function()
-			require("setup.memolist")
-		end,
-	},
-	{ "itchyny/calendar.vim", lazy = true, cmd = { "Calendar" } },
-	{
-		"mtth/scratch.vim",
-		lazy = true,
-		cmd = { "Scratch" },
-		config = function()
-			vim.g.scratch_persistence_file = vim.env.XDG_DATA_HOME .. "/nvim/scratch"
-		end,
-	},
-	{ "dstein64/vim-startuptime", lazy = true, cmd = { "StartupTime" } },
+      require('outline').setup({
+        -- Your setup opts here (leave empty to use defaults)
+      })
+    end,
+  },
+  {
+    'folke/trouble.nvim',
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>xx',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Diagnostics (Trouble)',
+      },
+      {
+        '<leader>xX',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = 'Buffer Diagnostics (Trouble)',
+      },
+      {
+        '<leader>cs',
+        '<cmd>Trouble symbols toggle focus=false<cr>',
+        desc = 'Symbols (Trouble)',
+      },
+      {
+        '<leader>cl',
+        '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+        desc = 'LSP Definitions / references / ... (Trouble)',
+      },
+      {
+        '<leader>xL',
+        '<cmd>Trouble loclist toggle<cr>',
+        desc = 'Location List (Trouble)',
+      },
+      {
+        '<leader>xQ',
+        '<cmd>Trouble qflist toggle<cr>',
+        desc = 'Quickfix List (Trouble)',
+      },
+    },
+  },
+  {
+    'nanotee/sqls.nvim',
+    lazy = true,
+    ft = 'sql',
+    config = function()
+      require('config.sqls')
+    end,
+  },
+  { 'simrat39/rust-tools.nvim', lazy = true, ft = 'rust' },
+  {
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      require('config.symbols-outline')
+    end,
+  },
+  -- search
+  {
+    {
+      'petertriho/nvim-scrollbar',
+      config = function()
+        require('scrollbar').setup()
+      end,
+    },
+    {
+      'kevinhwang91/nvim-hlslens',
+      lazy = true,
+      keys = {
+        { 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+        { 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+        { '*', [[*<Cmd>lua require('hlslens').start()<CR>]] },
+        { '#', [[#<Cmd>lua require('hlslens').start()<CR>]] },
+        { 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]] },
+        { 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]] },
+      },
+      config = function()
+        require('scrollbar.handlers.search').setup()
+      end,
+    },
+  },
+  -- fuzzy finder
+  {
+    {
+      'nvim-telescope/telescope.nvim',
+      lazy = true,
+      cmd = 'Telescope',
+      dependencies = {
+        { 'tami5/sqlite.lua' },
+        { 'nvim-telescope/telescope-frecency.nvim' },
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      },
+      keys = {
+        { '<M-b>', '<Cmd>Telescope buffers<CR>' },
+      },
+      config = function()
+        require('telescope').load_extension('frecency')
+        require('telescope').load_extension('fzf')
+        require('telescope').load_extension('notify')
+        require('telescope').setup({
+          extensions = {
+            fzf = {
+              fuzzy = true,
+              override_generic_sorter = true,
+              override_file_sorter = true,
+              case_mode = 'smart_case',
+            },
+          },
+        })
+      end,
+    },
+  },
+  -- file explorer
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons' },
+    },
+    config = function()
+      require('nvim-tree').setup()
+      vim.keymap.set('n', '<M-f>', ':NvimTreeToggle<CR>')
+    end,
+  },
+  -- status line
+  {
+    'nvim-mini/mini.statusline',
+    version = '*',
+    config = function()
+      require('mini.statusline').setup()
+    end,
+  },
+  {
+    {
+      'Bekaboo/dropbar.nvim',
+      -- optional, but required for fuzzy finder support
+      dependencies = {
+        'nvim-telescope/telescope-fzf-native.nvim',
+      },
+    },
+  },
+  -- edit
+  -- use { 'tpope/vim-surround', lazy = true, event = 'VimEnter' }
+  {
+    'machakann/vim-sandwich',
+    lazy = true,
+    event = 'VimEnter',
+  },
+  { 'tpope/vim-repeat', lazy = true },
+  {
+    'numToStr/Comment.nvim',
+    lazy = true,
+    event = 'BufEnter',
+    config = function()
+      require('Comment').setup()
+    end,
+    keys = {
+      { '<C-;>', '<Plug>(comment_toggle_linewise_current)' },
+      { '<C-;>', '<Plug>(comment_toggle_linewise_visual)', mode = 'v' },
+    },
+    opts = {
+      mappings = {
+        basic = false,
+        extra = false,
+      },
+    },
+  },
+  { 'dhruvasagar/vim-table-mode', lazy = true, ft = 'rst' },
+  -- git
+  {
+    'lewis6991/gitsigns.nvim',
+    lazy = true,
+    event = 'BufEnter',
+    config = function()
+      require('gitsigns').setup()
+      vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = '#99c794', bg = nil })
+      vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = '#6699cc', bg = nil })
+      vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg = '#ec5f67', bg = nil })
+    end,
+  },
+  -- fold
+  {
+    'tmhedberg/SimpylFold',
+    lazy = true,
+    ft = { 'python' },
+    config = function()
+      vim.g.table_mode_corner_corner = '+'
+      vim.g.table_mode_header_fillchar = '='
+    end,
+  },
+  -- notify
+  {
+    'rcarriga/nvim-notify',
+  },
+  -- memo
+  {
+    'glidenote/memolist.vim',
+    lazy = true,
+    cmd = { 'MemoNew', 'MemoList', 'MemoGrep' },
+    init = function()
+      require('setup.memolist')
+    end,
+  },
+  { 'itchyny/calendar.vim', lazy = true, cmd = { 'Calendar' } },
+  {
+    'mtth/scratch.vim',
+    lazy = true,
+    cmd = { 'Scratch' },
+    config = function()
+      vim.g.scratch_persistence_file = vim.env.XDG_DATA_HOME .. '/nvim/scratch'
+    end,
+  },
+  { 'dstein64/vim-startuptime', lazy = true, cmd = { 'StartupTime' } },
 }

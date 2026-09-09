@@ -34,6 +34,7 @@
 ## nvim
 !/.config/nvim/
 /.config/nvim/*
+!/.config/nvim/.stylua.toml
 !/.config/nvim/init.lua
 !/.config/nvim/after/
 /.config/nvim/after/*

@@ -29,8 +29,8 @@ if haslspconfig then
     map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     -- map('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    map('n', '<space>F', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
-    map('n', '<space>f', '<cmd>lua vim.lsp.buf.range_format()<CR>', opts)
+    -- map('n', '<space>F', '<cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
+    -- map('n', '<space>f', '<cmd>lua vim.lsp.buf.range_format()<CR>', opts)
 
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.document_highlight then
